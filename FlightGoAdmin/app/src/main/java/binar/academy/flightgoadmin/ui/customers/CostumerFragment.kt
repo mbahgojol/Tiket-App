@@ -5,7 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,13 +17,10 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -33,6 +30,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.findNavController
 import binar.academy.flightgoadmin.R
 import binar.academy.flightgoadmin.data.model.ResponseTransaction
+import binar.academy.flightgoadmin.databinding.FragmentCostumerBinding
 import binar.academy.flightgoadmin.ui.component.*
 import binar.academy.flightgoadmin.utils.*
 import com.rzl.flightgotiketbooking.ui.component.Container
@@ -41,23 +39,33 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class CostumerFragment : Fragment() {
 
+    private var binding: FragmentCostumerBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        return ComposeView(requireContext()).apply {
+    ): View? {
+        binding = FragmentCostumerBinding.inflate(inflater, container, false)
+        binding?.composeView?.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 CustomerScreen(back = {
                     findNavController().navigateUp()
-                })
+                },
+                    clickToDetailOrder = {
+                        findNavController().navigate(R.id.detailOrderFragment)
+                    })
             }
         }
+        return binding?.root
     }
 }
 
+var id = 0
+
 @Composable
 fun CustomerScreen(
-    back: () -> Unit = {}, viewModel: CustomerViewModel = hiltViewModel()
+    back: () -> Unit = {},
+    clickToDetailOrder: () -> Unit = {},
+    viewModel: CustomerViewModel = hiltViewModel()
 ) {
     LaunchedEffect(Unit) {
         viewModel.getListTransaction()
@@ -112,7 +120,7 @@ fun CustomerScreen(
                 Scaffold(topBar = {
                     TopAppBar(title = {
                         Text(
-                            text = "Detail Tiket", style = largeTitle.copy(
+                            text = "Customers", style = largeTitle.copy(
                                 color = Color.Black, fontSize = 19.sp
                             )
                         )
@@ -137,23 +145,6 @@ fun CustomerScreen(
                         Row(
                             Modifier
                                 .fillMaxWidth()
-                                .padding(horizontal = 16.dp)
-                                .height(48.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(color = GreyBox)
-                                .padding(horizontal = 18.dp, vertical = 14.dp),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Text(
-                                text = "List User", style = caption.copy(
-                                    fontWeight = FontWeight.Normal
-                                )
-                            )
-                        }
-                        SpacerHeight(height = 16.dp)
-                        Row(
-                            Modifier
-                                .fillMaxWidth()
                                 .padding(horizontal = 16.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
@@ -170,7 +161,11 @@ fun CustomerScreen(
                             items(response.data.size) { i ->
                                 ItemTrxCustomer(response.data[i], click = {
                                     showDialog = true
-                                }, viewModel = viewModel)
+                                }, viewModel = viewModel,
+                                    modifier = Modifier.clickable {
+                                        clickToDetailOrder()
+                                        id = response.data[i].id
+                                    })
                             }
                         }
                     }
@@ -187,9 +182,10 @@ fun CustomerScreen(
 fun ItemTrxCustomer(
     data: ResponseTransaction.Data, viewModel: CustomerViewModel,
     click: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Card(
-        Modifier, shape = RoundedCornerShape(10.dp)
+        modifier = modifier, shape = RoundedCornerShape(10.dp)
     ) {
         Column(Modifier.padding(vertical = 8.dp, horizontal = 12.dp)) {
             LineTextSection(text1 = data.id.toString(), text2 = data.createdAt)

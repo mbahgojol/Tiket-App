@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -59,7 +60,7 @@ class HomeFragment : Fragment() {
                 }, clickProfile = {
                     findNavController().navigate(R.id.profileFragment)
                 }, clickAddTiket = {
-                    findNavController().navigate(R.id.action_homeFragment_to_addTiketFragment)
+                    findNavController().navigate(R.id.addTiketFragment)
                 })
             }
         }
@@ -87,12 +88,10 @@ fun HomeScreen(
                 val response = it.data
                 Scaffold(floatingActionButton = {
                     FloatingActionButton(
-                        onClick = { clickAddTiket() },
-                        backgroundColor = GreyCard
+                        onClick = clickAddTiket, backgroundColor = GreyCard
                     ) {
                         Icon(
-                            Icons.Filled.Add, contentDescription = "",
-                            tint = OrangeFlight
+                            Icons.Filled.Add, contentDescription = "", tint = OrangeFlight
                         )
                     }
                 }, topBar = {
@@ -191,14 +190,9 @@ fun HomeScreen(
                             }
                         }
                         LazyColumn(
-                            Modifier.fillMaxSize(),
-                            contentPadding = PaddingValues(
-                                top = 16.dp,
-                                bottom = 40.dp,
-                                start = 16.dp,
-                                end = 16.dp
-                            ),
-                            verticalArrangement = Arrangement.spacedBy(16.dp)
+                            Modifier.fillMaxSize(), contentPadding = PaddingValues(
+                                top = 16.dp, bottom = 40.dp, start = 16.dp, end = 16.dp
+                            ), verticalArrangement = Arrangement.spacedBy(16.dp)
                         ) {
                             items(response.size) { i ->
                                 ItemCardTicket(model = response[i], modifier = Modifier.clickable {

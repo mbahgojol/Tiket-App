@@ -1,37 +1,0 @@
-
-ekotlin:S107Ÿ"HThis function has 25 parameters, which is greater than the 7 authorized.(Ú«µ¶ûÿÿÿÿ
-qkotlin:S6306-"TUsing "GlobalScope" here leads to the breaking of structured concurrency principles.(š£žŒúÿÿÿÿ
-qkotlin:S63066"TUsing "GlobalScope" here leads to the breaking of structured concurrency principles.(š£žŒúÿÿÿÿ
-qkotlin:S6306<"TUsing "GlobalScope" here leads to the breaking of structured concurrency principles.(š£žŒúÿÿÿÿ
-jkotlin:S117,"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(­Â°àùÿÿÿÿ
-fkotlin:S117ˆ"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(Šìáú
-kkotlin:S117 "NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(×ªÒ‚ûÿÿÿÿ
-kkotlin:S117 "NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(×ªÒ‚ûÿÿÿÿ
-kkotlin:S117 "NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(×ªÒ‚ûÿÿÿÿ
-kkotlin:S117 "NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(×ªÒ‚ûÿÿÿÿ
-kkotlin:S117 "NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(×ªÒ‚ûÿÿÿÿ
-ekotlin:S117¡"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(»Ù‹
-
-ekotlin:S117¡"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(»Ù‹
-
-ekotlin:S117¡"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(»Ù‹
-
-ekotlin:S117¡"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(»Ù‹
-
-kkotlin:S117¢"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ðŽ¢÷ûÿÿÿÿ
-kkotlin:S117¢"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ðŽ¢÷ûÿÿÿÿ
-kkotlin:S117¢"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ðŽ¢÷ûÿÿÿÿ
-ekotlin:S117£"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(Ú»þ.
-ekotlin:S117£"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(Ú»þ.
-ekotlin:S117£"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(Ú»þ.
-ekotlin:S117£"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(Ú»þ.
-kkotlin:S117¤"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(²•ö‡ÿÿÿÿÿ
-kkotlin:S117¤"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(²•ö‡ÿÿÿÿÿ
-kkotlin:S117¤"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(²•ö‡ÿÿÿÿÿ
-kkotlin:S117¤"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(²•ö‡ÿÿÿÿÿ
-kkotlin:S117¤"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(²•ö‡ÿÿÿÿÿ
-kkotlin:S117¥"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ãîâðúÿÿÿÿ
-kkotlin:S117¥"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ãîâðúÿÿÿÿ
-fkotlin:S117Å"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ñæ¼
-fkotlin:S117Å"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ñæ¼
-9kotlin:S6310'"Avoid hardcoded dispatchers.(Óéž‹øÿÿÿÿ

@@ -23,7 +23,7 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun okHttpClient(@ApplicationContext context: Context): OkHttpClient {
+    fun provideOkHttpClient(@ApplicationContext context: Context): OkHttpClient {
         return OkHttpClient.Builder().apply {
             if (BuildConfig.DEBUG) {
                 val loggingInterceptor = HttpLoggingInterceptor()
@@ -39,15 +39,17 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun setupRetrofitGithub(okHttp: OkHttpClient): Retrofit {
-        return Retrofit.Builder().baseUrl("https://flightgo-be-server.up.railway.app/v1/api/")
+    fun provideRetrofit(okHttp: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+            .client(okHttp)
+            .baseUrl("https://flightgo-be-server.up.railway.app/v1/api/")
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
 
     @Provides
-    fun apiService(retrofit: Retrofit): ApiAdminService =
+    fun provideApiService(retrofit: Retrofit): ApiAdminService =
         retrofit.create(ApiAdminService::class.java)
 
     @Provides
-    fun sharedPref(@ApplicationContext context: Context): DataStoreAdmin = DataStoreAdmin(context)
+    fun provideSharedPref(@ApplicationContext context: Context): DataStoreAdmin = DataStoreAdmin(context)
 }
