@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="28dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/padding_card">
+
+            <ImageView
+                android:id="@+id/vImage"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:contentDescription="Logo Maskapai"
+                android:src="@drawable/garuda_logo" />
+            <TextView
+                android:id="@+id/tv_depart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:textSize="11sp"
+                android:hint="Jakarta"
+                />
+
+            <TextView
+                android:id="@+id/tv_arrival"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textSize="11sp"
+                android:hint="Haneda"
+                />
+
+            <TextView
+                android:id="@+id/tv_kode_depart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/tv_depart"
+                android:hint="CGK"
+                style="@style/card_tv"
+                android:textSize="24sp"
+                />
+
+            <TextView
+                android:id="@+id/tv_kode_arrival"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/tv_arrival"
+                android:hint="HN"
+                style="@style/card_tv"
+                android:textSize="24sp"
+                />
+
+            <TextView
+                android:id="@+id/label_time_depart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/tv_kode_depart"
+                android:text="Depart"
+                style="@style/card_tv"
+                android:textSize="12sp"
+                />
+
+            <TextView
+                android:id="@+id/label_flight_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/tv_kode_arrival"
+                android:text="Flight Type"
+                android:textSize="12sp"
+                style="@style/card_tv"
+                />
+
+            <TextView
+                android:id="@+id/tv_time_depart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/label_time_depart"
+                android:hint="18.00"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tv_flight_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/label_flight_no"
+                android:hint="International"
+                android:textStyle="bold"
+                />
+
+            <ImageView
+                android:id="@+id/img_flight"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:src="@drawable/flight"
+                android:layout_below="@id/tv_time_depart"/>
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp. 120000000"
+                android:textStyle="bold"
+                android:textColor="@color/orange"
+                android:textSize="18sp"
+                android:layout_below="@id/img_flight"
+                />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

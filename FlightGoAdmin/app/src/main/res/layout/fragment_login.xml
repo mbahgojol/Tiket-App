@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/padding_layout"
+    tools:context=".ui.login.LoginFragment">
+
+    <TextView
+        android:id="@+id/textHeader"
+        android:text="Sign In"
+        android:textSize="32sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textHeader"
+        android:padding="10dp"
+        app:boxBackgroundColor="@color/white"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:hint="Email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/adminEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edEmail"
+        android:padding="10dp"
+        app:boxBackgroundColor="@color/white"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:endIconMode="password_toggle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/adminPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/Checkboxlogin"
+        android:text="Remember Me"
+        android:layout_below="@id/edPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/ForgetPassword"
+        android:text="Forgot Password ?"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/edPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btnSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Checkboxlogin"
+        android:backgroundTint="@color/orange"
+        android:text="Sign In" />
+
+    <RelativeLayout
+        android:id="@+id/RLGaris"
+        android:layout_below="@+id/btnSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:layout_marginHorizontal="20dp">
+
+        <View
+            android:id="@+id/garis1"
+            android:layout_width="150dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/abuabu"/>
+
+        <TextView
+            android:text="OR"
+            android:layout_marginStart="1dp"
+            android:layout_toEndOf="@+id/garis1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:id="@+id/garis2"
+            android:layout_width="150dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:background="@color/abuabu"/>
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btnGoogle"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLGaris"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/ic_google"
+        android:text="Login with Google" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnGoogle"
+        style="@style/card_tv"
+        android:text="Don't have an account ? " />
+
+    <TextView
+        android:id="@+id/tv_Regist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnGoogle"
+        android:layout_alignParentEnd="true"
+        android:text="Sign Up"
+        android:textColor="@color/orange" />
+    
+</RelativeLayout>

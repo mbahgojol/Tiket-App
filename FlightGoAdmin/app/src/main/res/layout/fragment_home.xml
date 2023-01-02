@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/txtHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="Home"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/txtHeloAdmin"
+        style="@style/padding_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtHome"
+        android:layout_marginTop="20dp"
+        android:text="Hello, Admin"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/btn_customer"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/txtHeloAdmin"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/grey_shape"
+        android:padding="10dp"
+        android:text="Customer"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@id/txtHeloAdmin"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/right_arrow" />
+
+    <TextView
+        android:id="@+id/txtlist"
+        style="@style/padding_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_customer"
+        android:layout_marginBottom="14dp"
+        android:text="List Tiket"
+        android:textColor="@color/orange"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/btn_oneway"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_customer"
+        android:layout_toStartOf="@id/btn_roundtrip"
+        android:background="@drawable/grey_shape"
+        android:padding="5dp"
+        android:text="Oneway"
+        android:textAllCaps="false"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/btn_roundtrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_customer"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/grey_shape"
+        android:padding="5dp"
+        android:text="Roundtrip"
+        android:textAllCaps="false"
+        android:textSize="11sp" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/txtlist"
+        android:backgroundTint="@color/grey_200">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_home"
+            style="@style/padding_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/card_tiket" />
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add_tiket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="@color/grey_500"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
+
+</RelativeLayout>

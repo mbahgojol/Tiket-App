@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        style="@style/card_tv"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_TransactionID"
+            android:text="Transaction ID"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:id="@+id/garis1"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/tv_TransactionID"
+            android:layout_width="50dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/abuabu"/>
+
+        <TextView
+            android:id="@+id/tv_Date"
+            android:text="Date"
+            android:layout_toEndOf="@+id/garis1"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black"
+            style="@style/card_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_UserId"
+            android:text="UserID"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            style="@style/card_tv"
+            android:layout_below="@+id/tv_TransactionID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <View
+            android:id="@+id/garis2"
+            android:layout_marginLeft="10dp"
+            android:layout_toEndOf="@+id/tv_UserId"
+            android:layout_below="@+id/tv_TransactionID"
+            android:layout_width="50dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:background="@color/abuabu"/>
+
+        <TextView
+            android:id="@+id/tv_UserName"
+            android:text="Name"
+            android:layout_below="@+id/tv_TransactionID"
+            android:layout_toEndOf="@id/garis2"
+            android:paddingStart="10dp"
+            android:textColor="@color/black"
+            style="@style/card_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/ProductId"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="ProductID"
+            android:layout_below="@+id/tv_UserId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/BtnAccept"
+            android:layout_below="@+id/ProductId"
+            android:layout_toLeftOf="@+id/btnReject"
+            android:layout_marginRight="20dp"
+            android:text="Accept"
+            android:backgroundTint="@color/green"
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <Button
+            android:id="@+id/btnReject"
+            android:text="Reject"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/ProductId"
+            android:backgroundTint="@color/red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

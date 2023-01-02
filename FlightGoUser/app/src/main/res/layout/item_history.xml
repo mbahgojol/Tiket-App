@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="380dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    android:layout_height="105dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:id="@+id/rl_top"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="35dp">
+            <TextView
+                android:layout_marginLeft="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Nov 2022"
+                android:fontFamily="@font/poppins_regular"
+                android:textSize="12sp"
+                />
+            <TextView
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp 700.000"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:padding="8dp"
+            android:background="#F6F6F6"
+            android:layout_width="match_parent"
+            android:layout_height="35dp">
+
+            <ImageView
+                android:id="@+id/img_imd_flight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/mdi_flight"/>
+            <TextView
+                android:layout_marginLeft="4dp"
+                android:layout_toRightOf="@id/img_imd_flight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Makassar - Semarang"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="12sp"
+                />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="35dp">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_status">
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selesai"
+                    android:textColor="@color/white"
+                    android:textSize="10sp"/>
+
+            </LinearLayout>
+            <TextView
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detail >"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/orange"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>

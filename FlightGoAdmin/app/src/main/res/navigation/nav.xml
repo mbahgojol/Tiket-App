@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="binar.academy.flightgoadmin.ui.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_splashScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="binar.academy.flightgoadmin.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_addTiketFragment"
+            app:destination="@id/addTiketFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_costumerFragment"
+            app:destination="@id/costumerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_detailTiketFragment"
+            app:destination="@id/detailTiketFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="binar.academy.flightgoadmin.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTiketFragment"
+        android:name="binar.academy.flightgoadmin.ui.addtiket.AddTiketFragment"
+        android:label="fragment_add_tiket"
+        tools:layout="@layout/fragment_add_tiket" />
+    <fragment
+        android:id="@+id/costumerFragment"
+        android:name="binar.academy.flightgoadmin.ui.customers.CostumerFragment"
+        android:label="fragment_costumer"
+        tools:layout="@layout/fragment_costumer" >
+        <action
+            android:id="@+id/action_costumerFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailTiketFragment"
+        android:name="binar.academy.flightgoadmin.ui.detailtiket.DetailTiketFragment"
+        android:label="fragment_detail_tiket"
+        tools:layout="@layout/fragment_detail_tiket" >
+        <action
+            android:id="@+id/action_detailTiketFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="binar.academy.flightgoadmin.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="binar.academy.flightgoadmin.ui.UserFragment"
+        android:label="fragment_user"
+        tools:layout="@layout/fragment_user" />
+</navigation>

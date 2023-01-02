@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/splashActivity">
+
+    <activity
+        android:id="@+id/splashActivity"
+        android:name="com.rzl.flightgotiketbooking.ui.SplashActivity"
+        android:label="activity_splash"
+        tools:layout="@layout/activity_splash" />
+    <fragment
+        android:id="@+id/bookingFragment"
+        android:name="com.rzl.flightgotiketbooking.ui.fragment.BookingFragment"
+        android:label="fragment_booking"
+        tools:layout="@layout/fragment_booking" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.rzl.flightgotiketbooking.ui.fragment.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history" />
+    <fragment
+        android:id="@+id/homesFragment"
+        android:name="com.rzl.flightgotiketbooking.ui.home.HomesFragment"
+        android:label="fragment_homes"
+        tools:layout="@layout/fragment_homes" >
+        <action
+            android:id="@+id/action_homesFragment_to_availableFlightActivity"
+            app:destination="@id/availableFlightActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.rzl.flightgotiketbooking.ui.notif.NotificationActivity"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.rzl.flightgotiketbooking.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <activity
+        android:id="@+id/detailTiketActivity"
+        android:name="com.rzl.flightgotiketbooking.ui.editprofile.DetailTiketActivity"
+        android:label="activity_detail_tiket"
+        tools:layout="@layout/activity_detail_tiket" />
+    <activity
+        android:id="@+id/editProfileActivity"
+        android:name="com.rzl.flightgotiketbooking.ui.editprofile.EditProfileActivity"
+        android:label="activity_edit_profile"
+        tools:layout="@layout/activity_edit_profile" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.rzl.flightgotiketbooking.ui.login.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.rzl.flightgotiketbooking.ui.register.RegisterActivity"
+        android:label="activity_register"
+        tools:layout="@layout/activity_register" />
+    <activity
+        android:id="@+id/availableFlightActivity"
+        android:name="com.rzl.flightgotiketbooking.ui.editprofile.AvailableFlightActivity"
+        android:label="fragment_available_flight"
+        tools:layout="@layout/fragment_available_flight" />
+</navigation>

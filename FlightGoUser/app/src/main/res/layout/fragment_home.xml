@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/orange"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.HomeFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:padding="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/logo_app"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/app_logo"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_alignParentRight="true"
+            android:id="@+id/img_user"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/user"
+            app:shapeAppearanceOverlay="@style/Circular"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/logo_app"
+            android:layout_marginTop="50dp"
+            android:id="@+id/rv_slide_show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:padding="16dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custom_layout_home"
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+
+        <ImageView
+            android:id="@+id/img_flights"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:src="@drawable/flights"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"/>
+        <TextView
+            android:id="@+id/tv_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="From"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"/>
+        <EditText
+            android:layout_below="@id/tv_from"
+            android:id="@+id/et_from"
+            android:padding="0dp"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:textColor="@color/black"
+            android:hint="Select City"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="16sp"/>
+        <TextView
+            android:layout_alignParentRight="true"
+            android:id="@+id/tv_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"/>
+        <EditText
+            android:textAlignment="viewEnd"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/tv_to"
+            android:id="@+id/et_to"
+            android:padding="0dp"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:textColor="@color/black"
+            android:hint="Select City"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/et_from"
+            android:id="@+id/tv_departure_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Departure Date"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:drawablePadding="5dp"
+            android:inputType="date"
+            android:id="@+id/et_departure_date"
+            android:drawableLeft="@drawable/date"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:hint="Select date"
+            android:textSize="16sp"
+            android:layout_below="@id/tv_departure_date"/>
+        <TextView
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/et_departure_date"
+            android:id="@+id/tv_passenger_luggage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Passenger &amp; Luggage"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"/>
+
+        <EditText
+            android:drawablePadding="5dp"
+            android:id="@+id/et_adult"
+            android:drawableLeft="@drawable/adult"
+            android:layout_width="140dp"
+            android:layout_height="50dp"
+            android:hint="Adult"
+            android:textSize="16sp"
+            android:layout_below="@id/tv_passenger_luggage"/>
+        <EditText
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/et_adult"
+            android:drawablePadding="5dp"
+            android:id="@+id/et_luggage"
+            android:drawableLeft="@drawable/koper"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:hint="Kgs"
+            android:textSize="16sp"
+            android:layout_below="@id/tv_passenger_luggage"/>
+        <TextView
+            android:layout_marginTop="8dp"
+            android:layout_below="@id/et_adult"
+            android:id="@+id/tv_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Class"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="14sp"/>
+        <RadioGroup
+            android:id="@id/rd_class"
+            android:orientation="horizontal"
+            android:layout_below="@id/tv_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioButton
+
+                android:textColor="@color/gray_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Economy"/>
+            <RadioButton
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/gray_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bussiness"/>
+            <RadioButton
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/gray_01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Elit"/>
+        </RadioGroup>
+
+        <Button
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/rd_class"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:text="Search Flights"
+            android:id="@+id/btn_search_flight"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:fontFamily="@font/poppins_semibold"
+            android:backgroundTint="@color/orange"/>
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
