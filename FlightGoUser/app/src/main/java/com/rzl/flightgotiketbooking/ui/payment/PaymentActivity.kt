@@ -7,14 +7,14 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -30,15 +30,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.rzl.flightgotiketbooking.R
-import com.rzl.flightgotiketbooking.data.model.Ewallet
 import com.rzl.flightgotiketbooking.ui.boardingpass.BoardingPassActivity
 import com.rzl.flightgotiketbooking.ui.component.SpacerHeight
 import com.rzl.flightgotiketbooking.ui.component.SpacerWidth
 import com.rzl.flightgotiketbooking.ui.detailtiket.ButtonNext
-import com.rzl.flightgotiketbooking.utils.GreyCard
-import com.rzl.flightgotiketbooking.utils.caption
-import com.rzl.flightgotiketbooking.utils.largeTitle
-import com.rzl.flightgotiketbooking.utils.largeTitleSemiBold
+import com.rzl.flightgotiketbooking.utils.*
 
 class PaymentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,58 +92,58 @@ fun PaymentScreen() {
         }, backgroundColor = colorResource(id = R.color.white))
     }) {
         Column(
-            Modifier.padding(it)
+            Modifier
+                .padding(it)
+                .padding(16.dp)
         ) {
-            val ewallets = listOf(
-                Ewallet("Google Pay", painterResource(id = R.drawable.google_icon)),
-                Ewallet("Paypal", painterResource(id = R.drawable.paypal)),
-                Ewallet("Apple Pay", painterResource(id = R.drawable.apple)),
+            Text(
+                text = "Total Biaya", style = largeTitleSemiBold.copy(
+                    fontSize = 14.sp
+                )
             )
-            var selectEwallet by remember {
-                mutableStateOf("")
-            }
-
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f),
-                contentPadding = PaddingValues(16.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
+            Text(
+                text = "Rp 10.000.000", style = largeTitleSemiBold.copy(
+                    fontSize = 24.sp, color = OrangeFlight
+                )
+            )
+            Text(
+                text = "Pembayaran dapat dilakukan melalui transfer\n" + "ke nomor rekening 422231232 (Bank Kai) a/n FlightGo",
+                style = caption
+            )
+            SpacerHeight(height = 30.dp)
+            Button(
+                onClick = {},
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(10.dp),
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = GreyCard, contentColor = Color.White
+                )
             ) {
-                item {
-                    Row(Modifier.fillMaxWidth()) {
-                        Text(
-                            text = "Payment Methods", style = largeTitleSemiBold.copy(
-                                fontSize = 14.sp
-                            )
-                        )
-                        Spacer(modifier = Modifier.weight(1f))
-                        Text(text = "Add New Card", style = largeTitleSemiBold.copy(
-                            fontSize = 14.sp, color = colorResource(id = R.color.orange)
-                        ), modifier = Modifier.clickable {
-
-                        })
-                    }
-                }
-
-                items(ewallets.size, key = {
-                    ewallets[it].nama
-                }) {
-                    ItemEwallet(value = selectEwallet,
-                        title = ewallets[it].nama,
-                        painter = ewallets[it].image,
-                        modifier = Modifier.selectable((selectEwallet == ewallets[it].nama)) {
-                            selectEwallet = ewallets[it].nama
-                        })
-                }
+                Text(
+                    text = "Upload Bukti Pembayaran", style = caption.copy(
+                        fontSize = 16.sp, color = Color.Black
+                    )
+                )
+            }
+            SpacerHeight(height = 30.dp)
+            Button(
+                onClick = {},
+                modifier = Modifier.fillMaxWidth(),
+                shape = CircleShape,
+                colors = ButtonDefaults.buttonColors(
+                    backgroundColor = RedFlight, contentColor = Color.White
+                )
+            ) {
+                Text(
+                    text = "Add to Wishlist", style = caption.copy(
+                        fontSize = 16.sp, color = Color.White
+                    )
+                )
             }
             SpacerHeight(height = 16.dp)
-            ButtonNext(
-                Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp), title = "Continue", click = {
-                    showSuccessDialog.value = true
-                })
+            ButtonNext(Modifier.fillMaxWidth(), title = "Continue", click = {
+                showSuccessDialog.value = true
+            })
         }
     }
 }
