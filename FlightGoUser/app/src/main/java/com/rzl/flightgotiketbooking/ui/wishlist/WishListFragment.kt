@@ -15,6 +15,7 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
@@ -27,6 +28,7 @@ import androidx.fragment.app.Fragment
 import com.rzl.flightgotiketbooking.R
 import com.rzl.flightgotiketbooking.ui.component.SpacerWidth
 import com.rzl.flightgotiketbooking.utils.caption
+import com.rzl.flightgotiketbooking.utils.largeTitle
 import com.rzl.flightgotiketbooking.utils.largeTitleSemiBold
 
 class WishListFragment : Fragment() {
@@ -44,7 +46,17 @@ class WishListFragment : Fragment() {
 
 @Composable
 fun WishListScreen() {
-    Scaffold {
+    Scaffold(topBar = {
+        TopAppBar(title = {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
+                Text(
+                    text = "Wishlist", style = largeTitle.copy(
+                        color = Color.Black, fontSize = 19.sp
+                    )
+                )
+            }
+        }, backgroundColor = colorResource(id = R.color.white))
+    }) {
         LazyColumn(
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),

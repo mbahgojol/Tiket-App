@@ -19,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.ViewCompositionStrategy
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,7 +28,10 @@ import com.rzl.flightgotiketbooking.R
 import com.rzl.flightgotiketbooking.databinding.FragmentHistoryBinding
 import com.rzl.flightgotiketbooking.ui.component.SpacerHeight
 import com.rzl.flightgotiketbooking.ui.component.SpacerWidth
-import com.rzl.flightgotiketbooking.utils.*
+import com.rzl.flightgotiketbooking.utils.GreenCard
+import com.rzl.flightgotiketbooking.utils.OrangeFlight
+import com.rzl.flightgotiketbooking.utils.caption
+import com.rzl.flightgotiketbooking.utils.largeTitleSemiBold
 
 class HistoryFragment : Fragment() {
     private var binding: FragmentHistoryBinding? = null
@@ -50,17 +52,7 @@ class HistoryFragment : Fragment() {
 
 @Composable
 fun HistoryScreen() {
-    Scaffold(topBar = {
-        TopAppBar(title = {
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
-                Text(
-                    text = "History", style = largeTitle.copy(
-                        color = Color.Black, fontSize = 19.sp
-                    )
-                )
-            }
-        }, backgroundColor = colorResource(id = R.color.white))
-    }) {
+    Scaffold {
         LazyColumn(
             contentPadding = PaddingValues(16.dp),
             verticalArrangement = Arrangement.spacedBy(16.dp),

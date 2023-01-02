@@ -264,7 +264,7 @@ fun DoubleDescription(
 fun TheRoute(
     modifier: Modifier = Modifier,
     city: String = "Jakarta",
-    code: String = "JKT",
+    code: String = "ID",
     horizontalAlignment: Alignment.Horizontal = Alignment.Start
 ) {
     Column(
