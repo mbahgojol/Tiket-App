@@ -55,8 +55,6 @@ Sapp/src/main/java/binar/academy/flightgoadmin/ui/detailtiket/DetailTiketFragmen
 Lapp/src/main/java/binar/academy/flightgoadmin/ui/profile/ProfileViewModel.kt,3/3/331eb098526ab4d8897c2b320177c46caef00e71
 w
 Gapp/src/main/java/binar/academy/flightgoadmin/ui/login/LoginFragment.kt,4/1/411c57dd5aa033d9ac5871c1634aeaf7a895fd27
-l
-<app/src/main/java/binar/academy/flightgoadmin/utils/Color.kt,7/8/7815771137e4c1e5ae73163b829da1cac4635ed0
 
 Oapp/src/main/java/binar/academy/flightgoadmin/ui/component/CenterProgressBar.kt,d/0/d0966a0e82ef371b6ac4d6fcb54fa140f5fb0c1c
 z
