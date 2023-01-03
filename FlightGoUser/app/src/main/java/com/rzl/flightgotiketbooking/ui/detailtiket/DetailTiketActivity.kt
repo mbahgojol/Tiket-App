@@ -117,6 +117,7 @@ fun DetailTiketScreen(
                             context.apply {
                                 Intent(this, PaymentActivity::class.java).apply {
                                     putExtra("id", id)
+                                    putExtra("price", it.data.price)
                                     startActivity(this)
                                 }
                             }

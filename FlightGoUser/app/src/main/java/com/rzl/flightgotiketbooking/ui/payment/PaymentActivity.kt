@@ -52,12 +52,13 @@ class PaymentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val id = intent.getIntExtra("id", 0)
+        val price = intent.getIntExtra("price", 0)
         setContent {
             MaterialTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
                 ) {
-                    PaymentScreen(id)
+                    PaymentScreen(id, price = price)
                 }
             }
         }
@@ -83,7 +84,11 @@ fun rememberPickImageGallery() = remember {
 }
 
 @Composable
-fun PaymentScreen(id: Int = 0, viewModel: PaymentViewModel = hiltViewModel()) {
+fun PaymentScreen(
+    id: Int = 0,
+    price: Int = 0,
+    viewModel: PaymentViewModel = hiltViewModel()
+) {
     val context = LocalContext.current
     val showSuccessDialog = remember {
         mutableStateOf(false)
@@ -150,7 +155,7 @@ fun PaymentScreen(id: Int = 0, viewModel: PaymentViewModel = hiltViewModel()) {
                 )
             )
             Text(
-                text = "Rp 10.000.000", style = largeTitleSemiBold.copy(
+                text = price.toString().toCurrencyFormat(), style = largeTitleSemiBold.copy(
                     fontSize = 24.sp, color = OrangeFlight
                 )
             )
@@ -208,9 +213,10 @@ fun PaymentScreen(id: Int = 0, viewModel: PaymentViewModel = hiltViewModel()) {
             }
             SpacerHeight(height = 16.dp)
             ButtonNext(Modifier.fillMaxWidth(), title = "Continue", click = {
-                context.contentResolver.openInputStream(pickImgGallery.imageUri!!)
-                    ?.let { it1 -> viewModel.createTrx(id, it1) }
-//                showSuccessDialog.value = true
+                pickImgGallery.imageUri?.let { uri ->
+                    viewModel.createTrx(id, RealPathUtil.getFilePath(context, uri).toString())
+                }
+                showSuccessDialog.value = true
             })
         }
     }

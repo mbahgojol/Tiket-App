@@ -9,9 +9,12 @@ import com.rzl.flightgotiketbooking.data.model.ResponseCreateTrx
 import com.rzl.flightgotiketbooking.utils.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
 import java.io.InputStream
 import javax.inject.Inject
 
@@ -28,15 +31,13 @@ class PaymentViewModel @Inject constructor(private val repository: Repository) :
         }
     }
 
-    fun createTrx(id: Int, inputStream: InputStream) {
+    fun createTrx(id: Int, path: String) {
+        val imageFile = File(path)
         val requestBody = MultipartBody.Builder().setType(MultipartBody.FORM)
             .addFormDataPart(
                 "bukti_Pembayaran",
                 "Image_${System.currentTimeMillis()}",
-                RequestBody.create(
-                    "application/octet".toMediaTypeOrNull(),
-                    inputStream.readBytes()
-                )
+                imageFile.asRequestBody("image/*".toMediaType())
             ).build()
 
         viewModelScope.launch {
