@@ -9,8 +9,6 @@ z
 Japp/src/main/java/binar/academy/flightgoadmin/ui/adapter/DateTimePIcker.kt,4/9/496953b2b1d60f09f6be1dd98fca9686aba52689
 r
 Bapp/src/main/java/binar/academy/flightgoadmin/utils/ResultState.kt,6/7/673559c93008a6103f716bcbf0fe6099c549f86a
-
-Oapp/src/main/java/binar/academy/flightgoadmin/data/model/tiket/TiketResponse.kt,9/8/98eec3cdea7fc67446311ef7e4cd52619738b668
 p
 @app/src/main/java/binar/academy/flightgoadmin/MainApplication.kt,4/a/4a194bf007b4cfe5b7240aa507c391c0fe5d9b24
 w
@@ -19,8 +17,6 @@ q
 Aapp/src/main/java/binar/academy/flightgoadmin/ui/component/Dot.kt,a/3/a3d4db6c25f68416288017bd364e295fd0c6b41f
 x
 Happ/src/main/java/binar/academy/flightgoadmin/ui/component/FlightLine.kt,9/5/95620027103f2008a49679d2069aae78155e96a7
-ƒ
-Sapp/src/main/java/binar/academy/flightgoadmin/data/model/tiket/TiketResponseItem.kt,a/e/aebae7aa83a1514cf57d6cc28a4b813ef037cbdd
 r
 Bapp/src/main/java/binar/academy/flightgoadmin/ui/component/Line.kt,2/e/2e0a45a20d35eb2b6ae17301eb504eccba91c86b
 t
@@ -63,8 +59,6 @@ q
 Aapp/src/main/java/binar/academy/flightgoadmin/di/NetworkModule.kt,d/b/dbc5e725364b8b0143e794560ae26b8f3b0e7244
 |
 Lapp/src/main/java/binar/academy/flightgoadmin/ui/viewmodel/AdminViewModel.kt,b/5/b57cad6418f36951670e2bbb4319460bfd2e48c4
-u
-Eapp/src/main/java/binar/academy/flightgoadmin/ui/home/HomeFragment.kt,3/b/3b08f3bbe89eea452365cc597ba6024556b231b4
 p
 @app/src/main/java/binar/academy/flightgoadmin/utils/FlowUtils.kt,f/e/fea1e65726792e73a42c733d109809632a59583d
 k
@@ -77,10 +71,6 @@ Oapp/src/main/java/binar/academy/flightgoadmin/data/model/ResponseOrderDetail.kt
 Sapp/src/main/java/binar/academy/flightgoadmin/ui/detailorder/DetailOrderFragment.kt,b/c/bcffab75d0eed4e212592af626bcaa1ee0f78b2f
 „
 Tapp/src/main/java/binar/academy/flightgoadmin/ui/detailorder/DetailOrderViewModel.kt,c/6/c6ea05b24cec5433c20bfa2ce3c92ecd75323f1c
-p
-@app/src/main/java/binar/academy/flightgoadmin/data/Repository.kt,1/5/1545277e548e42bf97dfc6e5e8918d33a6502ceb
-|
-Lapp/src/main/java/binar/academy/flightgoadmin/data/remote/ApiAdminService.kt,1/2/12f7486ed23476b473d29c61f7439c943e581195
 
 Oapp/src/main/java/binar/academy/flightgoadmin/ui/customers/CustomerViewModel.kt,5/8/58000d048e5ec09b95019093cb6d11e1dedb8ad4
 z
