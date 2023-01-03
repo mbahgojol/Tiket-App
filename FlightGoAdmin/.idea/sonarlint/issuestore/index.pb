@@ -43,8 +43,6 @@ Happ/src/main/java/binar/academy/flightgoadmin/ui/SplashScreenFragment.kt,c/c/c
 Qapp/src/main/java/binar/academy/flightgoadmin/data/model/admin/ResponseProfile.kt,4/d/4d63314cce89ae1def80aeb6a58de0ff70f9fb37
 {
 Kapp/src/main/java/binar/academy/flightgoadmin/ui/profile/ProfileFragment.kt,6/0/6046aeb7a045b5c8c56790124d2c827b3681175f
-ƒ
-Sapp/src/main/java/binar/academy/flightgoadmin/ui/detailtiket/DetailTiketFragment.kt,d/2/d24ca1bf1cf35e2c73ae3849d10f9a5272fb61b1
 |
 Lapp/src/main/java/binar/academy/flightgoadmin/ui/profile/ProfileViewModel.kt,3/3/331eb098526ab4d8897c2b320177c46caef00e71
 w
