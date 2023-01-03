@@ -75,8 +75,6 @@ X
 (gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
-@
-app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 ƒ
 Sapp/src/main/java/com/rzl/flightgotiketbooking/ui/listflight/ListFlightViewModel.kt,6/2/620230675c076e2b5d1a1b32985ab9720be96755
 w
@@ -107,9 +105,5 @@ w
 Gapp/src/main/java/com/rzl/flightgotiketbooking/ui/home/HomesFragment.kt,9/2/9253bc10e1ca735bd742ed995d482047fcc82b37
 ‚
 Rapp/src/main/java/com/rzl/flightgotiketbooking/ui/listflight/ListFlightActivity.kt,f/9/f93b765f0765ed4a94d6bc76bab374662abd0678
-|
-Lapp/src/main/java/com/rzl/flightgotiketbooking/ui/payment/PaymentActivity.kt,6/b/6b056942228546e2a022986f30dd2264a4088182
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 †
 Vapp/src/main/java/com/rzl/flightgotiketbooking/ui/boardingpass/BoardingPassActivity.kt,2/c/2cfec5de4b981684decc2455800c575933927665

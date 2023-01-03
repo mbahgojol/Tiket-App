@@ -146,13 +146,22 @@ fun AddTiketScreen(
         }
     }
 
-    val permissionState = rememberMultiplePermissionsState(
-        permissions = listOf(
-            Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_MEDIA_IMAGES,
+    val permissionState = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        rememberMultiplePermissionsState(
+            permissions = listOf(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_MEDIA_IMAGES,
+            )
         )
-    )
+    } else {
+        rememberMultiplePermissionsState(
+            permissions = listOf(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            )
+        )
+    }
 
     LaunchedEffect(Unit) {
         permissionState.launchMultiplePermissionRequest()

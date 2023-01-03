@@ -1,5 +1,6 @@
 package com.rzl.flightgotiketbooking.ui.payment
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
@@ -37,6 +38,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.PermissionsRequired
+import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.rzl.flightgotiketbooking.R
 import com.rzl.flightgotiketbooking.ui.boardingpass.BoardingPassActivity
 import com.rzl.flightgotiketbooking.ui.component.CenterProgressBar
@@ -83,12 +87,38 @@ fun rememberPickImageGallery() = remember {
     ResultImage()
 }
 
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun PaymentScreen(
     id: Int = 0,
     price: Int = 0,
     viewModel: PaymentViewModel = hiltViewModel()
 ) {
+    val permissionState = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        rememberMultiplePermissionsState(
+            permissions = listOf(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_MEDIA_IMAGES,
+            )
+        )
+    } else {
+        rememberMultiplePermissionsState(
+            permissions = listOf(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            )
+        )
+    }
+
+    LaunchedEffect(Unit) {
+        permissionState.launchMultiplePermissionRequest()
+    }
+
+    PermissionsRequired(multiplePermissionsState = permissionState,
+        permissionsNotGrantedContent = { },
+        permissionsNotAvailableContent = { }) {}
+
     val context = LocalContext.current
     val showSuccessDialog = remember {
         mutableStateOf(false)

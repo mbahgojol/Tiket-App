@@ -76,6 +76,8 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
     implementation "com.google.android.material:compose-theme-adapter:1.1.16"
     implementation "com.google.accompanist:accompanist-appcompat-theme:0.25.1"
+    def accompanistPermissionsVersion = '0.23.1'
+    implementation "com.google.accompanist:accompanist-permissions:$accompanistPermissionsVersion"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
