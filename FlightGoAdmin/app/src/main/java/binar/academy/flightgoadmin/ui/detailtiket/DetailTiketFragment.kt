@@ -334,6 +334,7 @@ fun DetailTiketScreen(
             ) {
                 Button(
                     onClick = {
+                        viewModel.updateTiket(formDataDepature, formDataReturn)
                         showSuccessDialog.value = true
                     },
                     modifier = Modifier
