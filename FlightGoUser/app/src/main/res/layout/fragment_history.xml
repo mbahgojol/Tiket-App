@@ -7,7 +7,6 @@
     tools:context=".ui.fragment.HistoryFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <androidx.appcompat.widget.Toolbar
         android:outlineAmbientShadowColor="@color/black"
         android:id="@+id/toolbar_history"
@@ -19,11 +18,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/arrow_back"
-            android:id="@+id/toolbar_back"/>
+            android:id="@+id/history_back"/>
         <TextView
             android:textColor="@color/black"
             android:textSize="19sp"
@@ -31,18 +31,19 @@
             android:layout_height="wrap_content"
             android:text="History"
             android:layout_gravity="center"
-            android:id="@+id/toolbar_title_history"/>
+            android:id="@+id/title_history"/>
+
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_history"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_history" />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
+        android:outlineAmbientShadowColor="@color/black"
         android:id="@+id/toolbar_booking"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,23 +13,32 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        android:elevation="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/toolbar_title_booking"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/poppins_medium"
-            android:text="History"
+            android:src="@drawable/arrow_back"
+            android:id="@+id/booking_back"/>
+
+        <TextView
             android:textColor="@color/black"
-            android:textSize="19sp" />
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="24sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="History"
+            android:layout_gravity="center"
+            android:id="@+id/title_booking"/>
+
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.compose.ui.platform.ComposeView
         android:id="@+id/composeView"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -116,13 +116,25 @@
                 android:id="@+id/tv_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rp. 120000000"
-                android:textStyle="bold"
-                android:textColor="@color/orange"
-                android:textSize="18sp"
                 android:layout_below="@id/img_flight"
-                />
+                android:text="Rp. 12.000.000"
+                android:textColor="@color/orange"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/tv_price"
+                android:layout_below="@id/img_flight"
+                android:text="Economy"
+                android:textSize="16sp" />
 
         </RelativeLayout>
+
     </androidx.cardview.widget.CardView>
+
 </RelativeLayout>

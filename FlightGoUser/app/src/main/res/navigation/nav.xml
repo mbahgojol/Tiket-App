@@ -46,9 +46,9 @@
         tools:layout="@layout/activity_detail_tiket" />
     <activity
         android:id="@+id/editProfileActivity"
-        android:name="com.rzl.flightgotiketbooking.ui.editprofile.EditProfileActivity"
+        android:name="com.rzl.flightgotiketbooking.ui.editprofile.EditProfileFragment"
         android:label="activity_edit_profile"
-        tools:layout="@layout/activity_edit_profile" />
+        tools:layout="@layout/fragment_edit_profile" />
     <activity
         android:id="@+id/loginActivity"
         android:name="com.rzl.flightgotiketbooking.ui.login.LoginActivity"

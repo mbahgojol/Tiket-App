@@ -43,7 +43,7 @@ class ProfileFragment : Fragment() {
                     val response = it.data as ResponseProfile
                     Glide.with(view)
                         .load(response.imageUser)
-                        .into(binding.imgProfile)
+                        .into(binding.imgProfilePass)
 
                     binding.tvNameUser.text = response.email
 

@@ -39,7 +39,7 @@
             android:name=".ui.notif.NotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.editprofile.EditProfileActivity"
+            android:name=".ui.editprofile.EditProfileFragment"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

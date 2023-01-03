@@ -7,7 +7,7 @@
     tools:context=".ui.profile.ProfileFragment">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_profile"
+        android:id="@+id/toolbar_profile_passs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -17,25 +17,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_back"
+            android:id="@+id/profile_details_back"/>
+
         <TextView
-            android:id="@+id/toolbar_title_profile"
+            android:id="@+id/title_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Profile"
             android:textColor="@color/black"
-            android:textSize="19sp" />
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="28sp"
+            tools:layout_editor_absoluteX="160dp"
+            tools:layout_editor_absoluteY="15dp" />
+
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/img_profile"
+        android:id="@+id/img_profile_pass"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:layout_marginTop="32dp"
-        android:src="@drawable/man_user"
+        android:src="@drawable/user"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_profile"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar_profile_passs"
         app:shapeAppearanceOverlay="@style/Circular" />
 
     <TextView
@@ -44,89 +54,157 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Name User"
+        android:text="Username"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+        app:layout_constraintTop_toBottomOf="@+id/img_profile_pass" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_details_account"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
-        android:text="Detail account"
+        android:text="Details Account"
+        android:textSize="18dp"
         android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textColor="@color/gray_02"
         app:icon="@drawable/details_account"
         app:iconPadding="10dp"
         app:iconTint="@color/gray_02"
+        android:backgroundTint="@color/white"
+        app:cornerRadius="10dp"
+        app:elevation="5dp"
+        app:strokeColor="@color/gray_02"
+        app:strokeWidth="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_user"
-        app:strokeColor="@color/gray_02" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_name_user" />
 
-    <Button
-        android:id="@+id/btn_language"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_change_password"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="Changge app language"
+        android:text="Change Password"
+        android:textSize="18dp"
         android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textColor="@color/gray_02"
-        app:icon="@drawable/language"
+        app:icon="@drawable/pro_pass"
         app:iconPadding="10dp"
         app:iconTint="@color/gray_02"
+        android:backgroundTint="@color/white"
+        app:cornerRadius="10dp"
+        app:elevation="5dp"
+        app:strokeColor="@color/gray_02"
+        app:strokeWidth="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_details_account"
-        app:strokeColor="@color/gray_02" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_details_account" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_help"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Help"
+        android:textSize="18dp"
         android:textAlignment="textStart"
         android:textAllCaps="false"
         android:textColor="@color/gray_02"
-        app:icon="@drawable/help"
+        app:icon="@drawable/pro_help"
         app:iconPadding="10dp"
         app:iconTint="@color/gray_02"
+        android:backgroundTint="@color/white"
+        app:cornerRadius="10dp"
+        app:elevation="5dp"
+        app:strokeColor="@color/gray_02"
+        app:strokeWidth="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_language"
-        app:strokeColor="@color/gray_02" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_change_password" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_tnc"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Terms &amp; Condition"
+        android:textSize="18dp"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/gray_02"
+        app:icon="@drawable/pro_tnc"
+        app:iconPadding="10dp"
+        app:iconTint="@color/gray_02"
+        android:backgroundTint="@color/white"
+        app:cornerRadius="10dp"
+        app:elevation="5dp"
+        app:strokeColor="@color/gray_02"
+        app:strokeWidth="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_help" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_pp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Privacy &amp; Policy"
+        android:textSize="18dp"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/gray_02"
+        app:icon="@drawable/pro_pp"
+        app:iconPadding="10dp"
+        app:iconTint="@color/gray_02"
+        android:backgroundTint="@color/white"
+        app:cornerRadius="10dp"
+        app:elevation="5dp"
+        app:strokeColor="@color/gray_02"
+        app:strokeWidth="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_tnc" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_logout"
         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:text="Logout"
-        android:textAlignment="textStart"
+        android:layout_height="60dp"
+        android:layout_weight="1"
         android:textAllCaps="false"
-        android:textColor="#FF0000"
-        app:icon="@drawable/logout"
-        app:iconPadding="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="32dp"
+        android:text="Logout"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        app:backgroundTint="@color/orange"
+        app:cornerRadius="10dp"
+        app:elevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_help"
+        app:layout_constraintTop_toBottomOf="@+id/btn_pp"
         app:strokeColor="@color/gray_02" />
 
     <ProgressBar
@@ -138,6 +216,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

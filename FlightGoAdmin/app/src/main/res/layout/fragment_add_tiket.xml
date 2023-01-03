@@ -202,7 +202,7 @@
                             android:id="@+id/ed_kode_asal"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:inputType="number"
+                            android:inputType="text"
                             android:textSize="12sp"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -221,7 +221,7 @@
                             android:id="@+id/ed_kode_tujuan"
                             android:layout_width="match_parent"
                             android:layout_height="45dp"
-                            android:inputType="number"
+                            android:inputType="text"
                             android:textSize="12sp"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
