@@ -6,6 +6,7 @@ import binar.academy.flightgoadmin.data.model.ResponseOrderDetail
 import binar.academy.flightgoadmin.data.model.ResponseTransaction
 import binar.academy.flightgoadmin.data.model.tiket.ResponseMessage
 import binar.academy.flightgoadmin.data.model.tiket.TiketResponse
+import binar.academy.flightgoadmin.data.model.tiket.TiketResponseItem
 import binar.academy.flightgoadmin.data.remote.ApiAdminService
 import binar.academy.flightgoadmin.utils.ResultState
 import binar.academy.flightgoadmin.utils.UiState
@@ -22,6 +23,27 @@ class Repository @Inject constructor(
     fun listFlight(): Flow<UiState<TiketResponse>> = flowState {
         val token = pref.getToken().first()
         apiService.listFlight(token.addBearer())
+    }
+
+    fun getTicket(
+        id: Int
+    ): Flow<UiState<TiketResponseItem>> = flowState {
+        val token = pref.getToken().first()
+        apiService.getTicket(token.addBearer(), id)
+    }
+
+    fun deleteTicket(
+        id: Int
+    ): Flow<UiState<ResponseMessage>> = flowState {
+        val token = pref.getToken().first()
+        apiService.deleteTicket(token.addBearer(), id)
+    }
+
+    fun updateTiket(
+        body: RequestBody
+    ): Flow<UiState<ResponseMessage>> = flowState {
+        val token = pref.getToken().first()
+        apiService.updateTiket(token.addBearer(), body)
     }
 
     fun getProfile(): Flow<ResultState> = flowApi {

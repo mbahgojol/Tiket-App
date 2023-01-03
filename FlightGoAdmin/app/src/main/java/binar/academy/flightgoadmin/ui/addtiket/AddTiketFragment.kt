@@ -46,6 +46,7 @@ import binar.academy.flightgoadmin.R
 import binar.academy.flightgoadmin.databinding.FragmentAddTiketBinding
 import binar.academy.flightgoadmin.ui.component.*
 import binar.academy.flightgoadmin.utils.*
+import coil.compose.rememberAsyncImagePainter
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.PermissionsRequired
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
@@ -119,7 +120,8 @@ fun AddTiketScreen(
                         is UiState.Error -> {
                             Log.e("Error", it.errorMessage)
                             ErrorMessage(
-                                msg = it.errorMessage, modifier = Modifier
+                                msg = it.errorMessage,
+                                modifier = Modifier
                                     .padding(16.dp)
                                     .size(200.dp)
                             )
@@ -411,18 +413,33 @@ fun FormAddTiket(formData: FormData) {
             listForm[8], state = listFormData[8], Modifier.fillMaxWidth()
         )
         SpacerHeight(height = 16.dp)
-        AnimatedVisibility(visible = (pickImgGallery.bitmap != null)) {
-            Column(
-                Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                pickImgGallery.bitmap?.let {
+        if (pickImgGallery.bitmap != null) {
+            AnimatedVisibility(visible = true) {
+                Column(
+                    Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    pickImgGallery.bitmap?.let {
+                        Image(
+                            bitmap = it.asImageBitmap(),
+                            contentDescription = "",
+                            modifier = Modifier.size(100.dp)
+                        )
+                    }
+                    SpacerHeight(height = 16.dp)
+                }
+            }
+        } else if (formData.image.value != "") {
+            AnimatedVisibility(visible = true) {
+                Column(
+                    Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally
+                ) {
                     Image(
-                        bitmap = it.asImageBitmap(),
+                        painter = rememberAsyncImagePainter(model = formData.image.value),
                         contentDescription = "",
                         modifier = Modifier.size(100.dp)
                     )
+                    SpacerHeight(height = 16.dp)
                 }
-                SpacerHeight(height = 16.dp)
             }
         }
         Row(
