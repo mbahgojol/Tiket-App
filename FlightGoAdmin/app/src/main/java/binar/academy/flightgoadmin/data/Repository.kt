@@ -2,7 +2,9 @@ package binar.academy.flightgoadmin.data
 
 import binar.academy.flightgoadmin.data.database.DataStoreAdmin
 import binar.academy.flightgoadmin.data.model.ResponseAccTrx
+import binar.academy.flightgoadmin.data.model.ResponseOrderDetail
 import binar.academy.flightgoadmin.data.model.ResponseTransaction
+import binar.academy.flightgoadmin.data.model.tiket.ResponseMessage
 import binar.academy.flightgoadmin.data.model.tiket.TiketResponse
 import binar.academy.flightgoadmin.data.remote.ApiAdminService
 import binar.academy.flightgoadmin.utils.ResultState
@@ -11,6 +13,7 @@ import binar.academy.flightgoadmin.utils.flowApi
 import binar.academy.flightgoadmin.utils.flowState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
+import okhttp3.RequestBody
 import javax.inject.Inject
 
 class Repository @Inject constructor(
@@ -26,9 +29,23 @@ class Repository @Inject constructor(
         apiService.getProfile(token.addBearer())
     }
 
+    fun getOrderDetail(
+        id: Int
+    ): Flow<UiState<ResponseOrderDetail>> = flowState {
+        val token = pref.getToken().first()
+        apiService.getOrderDetail(token.addBearer(), id)
+    }
+
     fun getTransaction(): Flow<UiState<ResponseTransaction>> = flowState {
         val token = pref.getToken().first()
         apiService.getTransaction(token.addBearer())
+    }
+
+    fun createTiket(
+        body: RequestBody
+    ): Flow<UiState<ResponseMessage>> = flowState {
+        val token = pref.getToken().first()
+        apiService.createTiket(token.addBearer(), body)
     }
 
     fun accTransaction(

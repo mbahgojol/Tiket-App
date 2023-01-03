@@ -85,4 +85,8 @@
         android:name="binar.academy.flightgoadmin.ui.UserFragment"
         android:label="fragment_user"
         tools:layout="@layout/fragment_user" />
+    <fragment
+        android:id="@+id/detailOrderFragment"
+        android:name="binar.academy.flightgoadmin.ui.detailorder.DetailOrderFragment"
+        android:label="DetailOrderFragment" />
 </navigation>

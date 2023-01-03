@@ -216,8 +216,8 @@ fun ItemFlight(
                     modifier = Modifier.weight(1f)
                 )
                 DoubleDescription(
-                    label = "Flight No",
-                    value = "JP".plus(model?.id),
+                    label = "Flight Type",
+                    value = model?.jenisPenerbangan.toString(),
                     horizontalAlignment = Alignment.End
                 )
             }
@@ -264,7 +264,7 @@ fun DoubleDescription(
 fun TheRoute(
     modifier: Modifier = Modifier,
     city: String = "Jakarta",
-    code: String = "JKT",
+    code: String = "ID",
     horizontalAlignment: Alignment.Horizontal = Alignment.Start
 ) {
     Column(

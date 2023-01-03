@@ -1,74 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.compose.ui.platform.ComposeView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/composeView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.customers.CostumerFragment">
-
-    <ImageView
-        android:id="@+id/arrowBack_Customer"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="15dp"
-        android:src="@drawable/ic_baseline_arrow_back_ios_new_24_black" />
-
-    <TextView
-        android:id="@+id/text_JudulCustomer"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:layout_toRightOf="@+id/arrowBack_Customer"
-        android:gravity="center"
-        android:text="Detail Tiket"
-        android:textColor="@color/black"
-        android:textSize="24dp" />
-
-    <TextView
-        android:id="@+id/btn_user"
-        android:layout_below="@+id/text_JudulCustomer"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:text="List User"
-        android:padding="10dp"
-        android:textStyle="bold"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:textColor="@color/black"
-        android:background="@drawable/grey_shape"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/textlateOrder"
-        android:text="Lates Orders"
-        android:textColor="@color/orange"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="10dp"
-        android:layout_below="@id/btn_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <androidx.cardview.widget.CardView
-        android:layout_below="@id/textlateOrder"
-        android:backgroundTint="@color/grey_200"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_Detailtiket"
-            android:layout_marginTop="10dp"
-            style="@style/padding_layout"
-            tools:listitem="@layout/item_customer"
-            android:layout_below="@+id/textlateOrder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </androidx.cardview.widget.CardView>
-</RelativeLayout>
+    tools:context=".ui.customers.CostumerFragment" />

@@ -1,20 +1,0 @@
-
-Kkotlin:S14816".Remove this unused "viewModel" local variable.(šÈµ©ıÿÿÿÿ
-Nkotlin:S14814"1Remove this unused "roundDepDesc" local variable.(´é­ÿÿÿÿÿ
-Mkotlin:S14813"0Remove this unused "roundDepImg" local variable.(³ˆ¡şÿÿÿÿ
-Jkotlin:S14812"2Remove this unused "roundDepPrice" local variable.(°á¿
-Ikotlin:S14811"1Remove this unused "roundDepDate" local variable.(ŸŞ¾Î
-Ikotlin:S14810"1Remove this unused "roundArrPort" local variable.(ÎÉå‘
-Ikotlin:S1481/"1Remove this unused "roundDepPort" local variable.(ù±Íç
-Nkotlin:S1481."1Remove this unused "roundArrCity" local variable.(Äùÿÿÿÿ
-Nkotlin:S1481-"1Remove this unused "roundDepCity" local variable.(Øˆå»şÿÿÿÿ
-Gkotlin:S1481*"/Remove this unused "oneDepDesc" local variable.(¾´£
-Kkotlin:S1481)".Remove this unused "oneDepImg" local variable.(£æ„”ûÿÿÿÿ
-Hkotlin:S1481("0Remove this unused "oneDepPrice" local variable.(ëµÑÎ
-Gkotlin:S1481'"/Remove this unused "oneDepDate" local variable.(–ÇÄ´
-Gkotlin:S1481&"/Remove this unused "oneArrPort" local variable.(¡À¨ÿ
-Gkotlin:S1481%"/Remove this unused "oneDepPort" local variable.(Çù¼Ò
-Lkotlin:S1481$"/Remove this unused "oneArrCity" local variable.(’¯áÖüÿÿÿÿ
-Gkotlin:S1481#"/Remove this unused "oneDepCity" local variable.(ú«à·
-Dkotlin:S1481"",Remove this unused "oneForm" local variable.(„Õéñ
-Dkotlin:S1481!",Remove this unused "oneType" local variable.(¥ªÕ

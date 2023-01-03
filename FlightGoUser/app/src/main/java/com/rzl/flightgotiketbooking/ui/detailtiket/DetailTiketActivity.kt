@@ -31,7 +31,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.rzl.flightgotiketbooking.R
 import com.rzl.flightgotiketbooking.data.model.ResponseFlightList
 import com.rzl.flightgotiketbooking.ui.component.*
-import com.rzl.flightgotiketbooking.ui.payment.PaymentFragment
+import com.rzl.flightgotiketbooking.ui.payment.PaymentActivity
 import com.rzl.flightgotiketbooking.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -115,7 +115,9 @@ fun DetailTiketScreen(
                         SpacerHeight(height = 16.dp)
                         ButtonNext(Modifier.fillMaxWidth(), click = {
                             context.apply {
-                                Intent(this, PaymentFragment::class.java).apply {
+                                Intent(this, PaymentActivity::class.java).apply {
+                                    putExtra("id", id)
+                                    putExtra("price", it.data.price)
                                     startActivity(this)
                                 }
                             }

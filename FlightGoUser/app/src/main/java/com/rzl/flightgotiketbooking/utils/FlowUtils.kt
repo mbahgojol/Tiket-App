@@ -10,6 +10,7 @@ fun <T : Any> flowState(service: suspend () -> T): Flow<UiState<T>> = flow {
     try {
         emit(UiState.Success(service.invoke()))
     } catch (e: Exception) {
+        e.printStackTrace()
         emit(UiState.Error(e.message.toString()))
     }
 }.flowIo()

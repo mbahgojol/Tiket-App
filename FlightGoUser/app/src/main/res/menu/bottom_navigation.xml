@@ -11,6 +11,11 @@
         android:icon="@drawable/bookings"
         android:title="History" />
     <item
+        android:id="@+id/item_wishlist"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="Wishlist" />
+    <item
         android:id="@+id/item_profile"
         android:enabled="true"
         android:icon="@drawable/btn_profile"

@@ -8,8 +8,10 @@ import com.google.android.material.navigation.NavigationBarView
 import com.rzl.flightgotiketbooking.R
 import com.rzl.flightgotiketbooking.databinding.ActivityMainBinding
 import com.rzl.flightgotiketbooking.ui.booking.BookingFragment
+import com.rzl.flightgotiketbooking.ui.fragment.HistoryFragment
 import com.rzl.flightgotiketbooking.ui.home.HomesFragment
 import com.rzl.flightgotiketbooking.ui.profile.ProfileFragment
+import com.rzl.flightgotiketbooking.ui.wishlist.WishListFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,7 +36,11 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
                 R.id.item_booking -> {
-                    loadFragment(BookingFragment())
+                    loadFragment(HistoryFragment())
+                    return@setOnItemSelectedListener true
+                }
+                R.id.item_wishlist -> {
+                    loadFragment(WishListFragment())
                     return@setOnItemSelectedListener true
                 }
                 R.id.item_profile -> {

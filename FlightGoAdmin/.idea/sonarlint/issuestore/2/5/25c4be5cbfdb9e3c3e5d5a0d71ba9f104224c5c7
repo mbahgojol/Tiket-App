@@ -7,3 +7,4 @@ qkotlin:S117H"NRename this parameter to match the regular expression ^`?[_a-z
 qkotlin:S117L"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(ÛÒ®²ÿÿÿÿÿ8üÎÞ€×0
 lkotlin:S117P"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(§ûàü8þñÞ€×0
 lkotlin:S117T"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(Ç†»¨8þñÞ€×0
+kkotlin:S117X"NRename this parameter to match the regular expression ^`?[_a-z][a-zA-Z0-9]*`?$(›Ñ‘g8²¥€˜×0
