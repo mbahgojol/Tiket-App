@@ -116,6 +116,7 @@ fun DetailTiketScreen(
                         ButtonNext(Modifier.fillMaxWidth(), click = {
                             context.apply {
                                 Intent(this, PaymentActivity::class.java).apply {
+                                    putExtra("id", id)
                                     startActivity(this)
                                 }
                             }

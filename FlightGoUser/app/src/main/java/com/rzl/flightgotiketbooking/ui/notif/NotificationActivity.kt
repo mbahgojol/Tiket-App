@@ -15,6 +15,9 @@ import androidx.compose.material.icons.filled.ArrowRightAlt
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,11 +32,16 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.rzl.flightgotiketbooking.R
+import com.rzl.flightgotiketbooking.data.model.ResponseDetailTrx
+import com.rzl.flightgotiketbooking.ui.component.CenterProgressBar
+import com.rzl.flightgotiketbooking.ui.component.ErrorMessage
 import com.rzl.flightgotiketbooking.ui.component.SpacerWidth
 import com.rzl.flightgotiketbooking.utils.*
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class NotificationActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +55,15 @@ class NotificationActivity : AppCompatActivity() {
 }
 
 @Composable
-fun NotificationScreen(context: Context = LocalContext.current) {
+fun NotificationScreen(
+    context: Context = LocalContext.current, viewModel: NotifViewModel = hiltViewModel()
+) {
+    LaunchedEffect(Unit) {
+        viewModel.getNotif()
+    }
+
+    val state by viewModel.state.collectAsState()
+
     Scaffold(topBar = {
         TopAppBar(title = {
             Text(
@@ -68,65 +84,81 @@ fun NotificationScreen(context: Context = LocalContext.current) {
                 )
             }
         }, backgroundColor = colorResource(id = R.color.orange))
-    }) {
-        LazyColumn(
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            modifier = Modifier.padding(it)
-        ) {
-            items(10) {
-                Card(
-                    elevation = 5.dp,
-                    shape = RoundedCornerShape(10.dp),
-                    modifier = Modifier.fillMaxWidth()
+    }) { pv ->
+        when (state) {
+            is UiState.Loading -> {
+                CenterProgressBar()
+            }
+            is UiState.Error -> {
+                ErrorMessage(msg = (state as UiState.Error).errorMessage)
+            }
+            is UiState.Success -> {
+                val response = (state as UiState.Success<ResponseDetailTrx>).data.data
+                LazyColumn(
+                    contentPadding = PaddingValues(16.dp),
+                    verticalArrangement = Arrangement.spacedBy(16.dp),
+                    modifier = Modifier.padding(pv)
                 ) {
-                    Column(
-                        modifier = Modifier.padding(18.dp)
-                    ) {
-                        Row(
-                            Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceBetween
+                    items(1) {
+                        Card(
+                            elevation = 5.dp,
+                            shape = RoundedCornerShape(10.dp),
+                            modifier = Modifier.fillMaxWidth()
                         ) {
-                            Text(
-                                text = "Kode Transaksi : 00$it", style = caption.copy(
-                                    fontSize = 12.sp
-                                )
-                            )
-                            Text(
-                                text = "Status Order :", style = caption.copy(
-                                    fontSize = 12.sp
-                                )
-                            )
-                        }
+                            Column(
+                                modifier = Modifier.padding(18.dp)
+                            ) {
+                                Row(
+                                    Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Text(
+                                        text = "Kode Transaksi : 00${response.id}",
+                                        style = caption.copy(
+                                            fontSize = 12.sp
+                                        )
+                                    )
+                                    Text(
+                                        text = "Status Order :", style = caption.copy(
+                                            fontSize = 12.sp
+                                        )
+                                    )
+                                }
 
-                        Row(
-                            Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Image(
-                                painter = painterResource(id = R.drawable.garuda),
-                                contentDescription = "",
-                                Modifier
-                                    .width(50.dp)
-                                    .height(50.dp),
-                                contentScale = ContentScale.Fit
-                            )
-                            SpacerWidth(width = 8.dp)
-                            Text(
-                                text = "Jakarta", style = largeTitleSemiBold.copy(
-                                    fontSize = 10.sp,
-                                )
-                            )
-                            Icon(Icons.Filled.ArrowRightAlt, contentDescription = "")
-                            Text(
-                                text = "Semarang", style = largeTitleSemiBold.copy(
-                                    fontSize = 10.sp,
-                                )
-                            )
-                            Spacer(modifier = Modifier.weight(1f))
-                            if (it == 2 || it == 5) {
-                                ButtonCardNegative()
-                            } else {
-                                ButtonCardPositive()
+                                Row(
+                                    Modifier.fillMaxWidth(),
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Image(
+                                        painter = painterResource(id = R.drawable.garuda),
+                                        contentDescription = "",
+                                        Modifier
+                                            .width(50.dp)
+                                            .height(50.dp),
+                                        contentScale = ContentScale.Fit
+                                    )
+                                    SpacerWidth(width = 8.dp)
+                                    Text(
+                                        text = response.product.kotaAsal,
+                                        style = largeTitleSemiBold.copy(
+                                            fontSize = 10.sp,
+                                        )
+                                    )
+                                    Icon(Icons.Filled.ArrowRightAlt, contentDescription = "")
+                                    Text(
+                                        text = response.product.kotaTujuan,
+                                        style = largeTitleSemiBold.copy(
+                                            fontSize = 10.sp,
+                                        )
+                                    )
+                                    Spacer(modifier = Modifier.weight(1f))
+
+                                    if (response.status.contains("Diterima")) {
+                                        ButtonCardPositive()
+                                    } else {
+                                        ButtonCardNegative()
+                                    }
+                                }
                             }
                         }
                     }

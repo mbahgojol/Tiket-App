@@ -2,23 +2,30 @@ package com.rzl.flightgotiketbooking.ui.payment
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.ImageDecoder
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.provider.MediaStore
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
@@ -29,22 +36,28 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.rzl.flightgotiketbooking.R
 import com.rzl.flightgotiketbooking.ui.boardingpass.BoardingPassActivity
+import com.rzl.flightgotiketbooking.ui.component.CenterProgressBar
+import com.rzl.flightgotiketbooking.ui.component.ErrorMessage
 import com.rzl.flightgotiketbooking.ui.component.SpacerHeight
 import com.rzl.flightgotiketbooking.ui.component.SpacerWidth
 import com.rzl.flightgotiketbooking.ui.detailtiket.ButtonNext
 import com.rzl.flightgotiketbooking.utils.*
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PaymentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val id = intent.getIntExtra("id", 0)
         setContent {
             MaterialTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
                 ) {
-                    PaymentScreen()
+                    PaymentScreen(id)
                 }
             }
         }
@@ -59,15 +72,50 @@ fun DefaultPreview() {
     }
 }
 
+class ResultImage {
+    var imageUri by mutableStateOf<Uri?>(null)
+    var bitmap by mutableStateOf<Bitmap?>(null)
+}
+
 @Composable
-fun PaymentScreen() {
+fun rememberPickImageGallery() = remember {
+    ResultImage()
+}
+
+@Composable
+fun PaymentScreen(id: Int = 0, viewModel: PaymentViewModel = hiltViewModel()) {
     val context = LocalContext.current
     val showSuccessDialog = remember {
         mutableStateOf(false)
     }
 
+    val showDialogAddWish = remember {
+        mutableStateOf(false)
+    }
+
+    if (showDialogAddWish.value) {
+        viewModel.addWish(id = id)
+        AddWishDialog(dialogState = showDialogAddWish, viewModel)
+    }
+
     if (showSuccessDialog.value) {
         PaymentSuccessDialog(dialogState = showSuccessDialog)
+    }
+
+    val pickImgGallery = rememberPickImageGallery()
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        pickImgGallery.imageUri = uri
+    }
+
+    pickImgGallery.imageUri?.let {
+        pickImgGallery.bitmap = if (Build.VERSION.SDK_INT < 28) {
+            MediaStore.Images.Media.getBitmap(context.contentResolver, it)
+        } else {
+            val source = ImageDecoder.createSource(context.contentResolver, it)
+            ImageDecoder.decodeBitmap(source)
+        }
     }
 
     Scaffold(topBar = {
@@ -111,8 +159,24 @@ fun PaymentScreen() {
                 style = caption
             )
             SpacerHeight(height = 30.dp)
+            AnimatedVisibility(visible = (pickImgGallery.bitmap != null)) {
+                Column(
+                    Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    pickImgGallery.bitmap?.let { img ->
+                        Image(
+                            bitmap = img.asImageBitmap(),
+                            contentDescription = "",
+                            modifier = Modifier.size(100.dp)
+                        )
+                    }
+                    SpacerHeight(height = 16.dp)
+                }
+            }
             Button(
-                onClick = {},
+                onClick = {
+                    launcher.launch("image/*")
+                },
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(10.dp),
                 colors = ButtonDefaults.buttonColors(
@@ -127,7 +191,9 @@ fun PaymentScreen() {
             }
             SpacerHeight(height = 30.dp)
             Button(
-                onClick = {},
+                onClick = {
+                    showDialogAddWish.value = true
+                },
                 modifier = Modifier.fillMaxWidth(),
                 shape = CircleShape,
                 colors = ButtonDefaults.buttonColors(
@@ -142,8 +208,58 @@ fun PaymentScreen() {
             }
             SpacerHeight(height = 16.dp)
             ButtonNext(Modifier.fillMaxWidth(), title = "Continue", click = {
-                showSuccessDialog.value = true
+                context.contentResolver.openInputStream(pickImgGallery.imageUri!!)
+                    ?.let { it1 -> viewModel.createTrx(id, it1) }
+//                showSuccessDialog.value = true
             })
+        }
+    }
+}
+
+@Composable
+fun AddWishDialog(
+    dialogState: MutableState<Boolean> = mutableStateOf(false), viewModel: PaymentViewModel
+) {
+    Dialog(onDismissRequest = {
+        dialogState.value = false
+    }) {
+        Card(
+            Modifier.size(200.dp), shape = RoundedCornerShape(10.dp)
+        ) {
+            viewModel.state.observeAsState().value?.let {
+                when (it) {
+                    is UiState.Error -> {
+                        ErrorMessage(
+                            msg = it.errorMessage, modifier = Modifier.padding(16.dp)
+                        )
+                    }
+                    is UiState.Success -> {
+                        Column(
+                            Modifier
+                                .fillMaxSize()
+                                .clip(RoundedCornerShape(20.dp))
+                                .background(color = Color.White),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.Center
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.success_icon),
+                                contentDescription = "",
+                                Modifier.size(100.dp)
+                            )
+                            SpacerHeight(height = 20.dp)
+                            Text(
+                                text = it.data.message, style = caption.copy(
+                                    fontWeight = FontWeight.Normal, textAlign = TextAlign.Center
+                                )
+                            )
+                        }
+                    }
+                    is UiState.Loading -> {
+                        CenterProgressBar(Modifier.padding(16.dp))
+                    }
+                }
+            }
         }
     }
 }
