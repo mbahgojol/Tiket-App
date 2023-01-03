@@ -244,7 +244,8 @@ fun PaymentScreen(
             SpacerHeight(height = 16.dp)
             ButtonNext(Modifier.fillMaxWidth(), title = "Continue", click = {
                 pickImgGallery.imageUri?.let { uri ->
-                    viewModel.createTrx(id, RealPathUtil.getFilePath(context, uri).toString())
+                    context.contentResolver.openInputStream(uri)
+                        ?.let { it1 -> viewModel.createTrx(id, it1) }
                 }
                 showSuccessDialog.value = true
             })
