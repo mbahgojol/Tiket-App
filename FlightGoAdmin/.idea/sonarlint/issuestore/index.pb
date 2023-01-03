@@ -1,10 +1,6 @@
 
 F
 app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
-?
-settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
-A
-gradle.properties,2/a/2afbb999f001938c88fa43fc2ef52abf0f8213e4
 X
 (gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 <
@@ -31,8 +27,6 @@ Dapp/src/main/java/binar/academy/flightgoadmin/ui/component/Dotted.kt,1/5/157c2
 Mapp/src/main/java/binar/academy/flightgoadmin/ui/viewmodel/BookedViewModel.kt,1/3/13c3bf7ceec28172c9edb16cd30027884f749d0d
 v
 Fapp/src/main/java/binar/academy/flightgoadmin/data/remote/APIClient.kt,3/3/33829deb89cd2197adc9a7695490788a1ea890f0
-P
- app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 p
 @app/src/main/java/binar/academy/flightgoadmin/ui/MainActivity.kt,7/f/7f0535c69e416d994e2314495a5c1b5dcd6c797d
 v
@@ -63,8 +57,6 @@ Gapp/src/main/java/binar/academy/flightgoadmin/data/remote/APIService.kt,b/f/bf
 Qapp/src/main/java/binar/academy/flightgoadmin/data/model/tiket/ResponseMessage.kt,6/1/6138893a28f98810da876dc447b7f2d2efe3f7b7
 q
 Aapp/src/main/java/binar/academy/flightgoadmin/di/NetworkModule.kt,d/b/dbc5e725364b8b0143e794560ae26b8f3b0e7244
-@
-app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 |
 Lapp/src/main/java/binar/academy/flightgoadmin/ui/viewmodel/AdminViewModel.kt,b/5/b57cad6418f36951670e2bbb4319460bfd2e48c4
 p

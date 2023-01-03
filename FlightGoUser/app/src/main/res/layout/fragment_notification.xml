@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.notif.NotificationActivity"
+    tools:context=".ui.notif.NotificationFragment"
+    android:paddingBottom="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar_notification"
@@ -18,40 +18,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/arrow_back"
-            android:id="@+id/toolbar_back"/>
+            android:id="@+id/notifcation_back"/>
+
         <TextView
-            android:textColor="@color/black"
-            android:textSize="19sp"
+            android:id="@+id/title_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Notification"
             android:layout_gravity="center"
-            android:id="@+id/toolbar_title_notification"/>
+            android:text="Notification"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="160dp"
+            tools:layout_editor_absoluteY="15dp" />
+
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_history"
+        android:id="@+id/rv_notification"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar_notification" />
-
-    <TextView
-        android:id="@+id/tv_no_notifications"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No Notifications Yet"
-        android:fontFamily="@font/poppins_semibold"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_notification" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

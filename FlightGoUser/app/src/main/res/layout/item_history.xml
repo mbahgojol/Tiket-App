@@ -1,95 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="380dp"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="10dp"
-    android:layout_height="105dp">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
+
         <RelativeLayout
             android:id="@+id/rl_top"
             android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="35dp">
+
             <TextView
-                android:layout_marginLeft="8dp"
+                android:id="@+id/tv_header_kodetrx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12 Nov 2022"
-                android:fontFamily="@font/poppins_regular"
-                android:textSize="12sp"
-                />
-            <TextView
-                android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rp 700.000"
+                android:text="Kode Transaksi : "
+                android:layout_marginEnd="2dp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_history_kodetrx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/tv_header_kodetrx"
+                android:text="001"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_semibold"
                 android:textSize="12sp"/>
+
         </RelativeLayout>
+
         <RelativeLayout
             android:padding="8dp"
-            android:background="#F6F6F6"
             android:layout_width="match_parent"
             android:layout_height="35dp">
 
             <ImageView
-                android:id="@+id/img_imd_flight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/mdi_flight"/>
+                android:id="@+id/img_history_maskapai"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/garuda"/>
+
             <TextView
+                android:id="@+id/txt_history_penerbangan"
                 android:layout_marginLeft="4dp"
-                android:layout_toRightOf="@id/img_imd_flight"
+                android:layout_toRightOf="@id/img_history_maskapai"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:text="Makassar - Semarang"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:fontFamily="@font/poppins_semibold"
-                android:textSize="12sp"
-                />
-
-        </RelativeLayout>
-        <RelativeLayout
-            android:padding="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="35dp">
+                android:textSize="12sp" />
 
             <LinearLayout
+                android:layout_alignParentRight="true"
                 android:gravity="center"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="100dp"
                 android:background="@drawable/custom_status">
+
                 <TextView
+                    android:id="@+id/tv_history_status"
                     android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Selesai"
+                    android:text="Economy"
+                    android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:textSize="10sp"/>
+                    android:textSize="12sp"/>
 
             </LinearLayout>
-            <TextView
-                android:layout_alignParentRight="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Detail >"
-                android:textStyle="bold"
-                android:fontFamily="@font/poppins_medium"
-                android:textColor="@color/orange"
-                android:textSize="12sp"/>
+
         </RelativeLayout>
 
+        <RelativeLayout
+            android:background="@color/orange"
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
 
+            <TextView
+                android:id="@+id/tv_header_harga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total :"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_history_harga"
+                android:layout_below="@id/tv_header_harga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rp 700.000"
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_bold"
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+
+        </RelativeLayout>
 
     </LinearLayout>
-
-
 
 </androidx.cardview.widget.CardView>

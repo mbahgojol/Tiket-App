@@ -15,7 +15,7 @@ class AdapterFlight(val listFlight : ArrayList<DataFlight>)
 
     class ViewHolder(itemFlight: View): RecyclerView.ViewHolder(itemFlight){
         var price = itemFlight.findViewById<TextView>(R.id.tv_price)
-        var imgFlight =itemFlight.findViewById<ImageView>(R.id.logo_maskapai)
+        var imgFlight =itemFlight.findViewById<ImageView>(R.id.img_flight)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

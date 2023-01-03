@@ -46,9 +46,9 @@
         tools:layout="@layout/activity_detail_tiket" />
     <activity
         android:id="@+id/editProfileActivity"
-        android:name="com.rzl.flightgotiketbooking.ui.editprofile.EditProfileActivity"
+        android:name="com.rzl.flightgotiketbooking.ui.editprofile.EditProfileFragment"
         android:label="activity_edit_profile"
-        tools:layout="@layout/activity_edit_profile" />
+        tools:layout="@layout/fragment_edit_profile" />
     <activity
         android:id="@+id/loginActivity"
         android:name="com.rzl.flightgotiketbooking.ui.login.LoginActivity"
@@ -64,4 +64,19 @@
         android:name="com.rzl.flightgotiketbooking.ui.editprofile.AvailableFlightActivity"
         android:label="fragment_available_flight"
         tools:layout="@layout/fragment_available_flight" />
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.rzl.flightgotiketbooking.ui.help.HelpFragment"
+        android:label="fragment_help"
+        tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/privacynPolicyFragment"
+        android:name="com.rzl.flightgotiketbooking.ui.PrivacynPolicyFragment"
+        android:label="fragment_privacyn_policy"
+        tools:layout="@layout/fragment_privacyn_policy" />
+    <fragment
+        android:id="@+id/termsnConditionFragment"
+        android:name="com.rzl.flightgotiketbooking.ui.tnc.TermsnConditionFragment"
+        android:label="fragment_termsn_condition"
+        tools:layout="@layout/fragment_termsn_condition" />
 </navigation>

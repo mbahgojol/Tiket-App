@@ -114,7 +114,7 @@
             android:id="@+id/tv_passenger_luggage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Passenger &amp; Luggage"
+            android:text="Passenger &amp; Seat Class"
             android:fontFamily="@font/poppins_regular"
             android:textSize="14sp"/>
 
@@ -127,17 +127,7 @@
             android:hint="Adult"
             android:textSize="16sp"
             android:layout_below="@id/tv_passenger_luggage"/>
-        <EditText
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/et_adult"
-            android:drawablePadding="5dp"
-            android:id="@+id/et_luggage"
-            android:drawableLeft="@drawable/koper"
-            android:layout_width="80dp"
-            android:layout_height="50dp"
-            android:hint="Kgs"
-            android:textSize="16sp"
-            android:layout_below="@id/tv_passenger_luggage"/>
+
         <TextView
             android:layout_marginTop="8dp"
             android:layout_below="@id/et_adult"

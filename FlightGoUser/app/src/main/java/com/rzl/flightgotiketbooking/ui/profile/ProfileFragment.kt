@@ -13,7 +13,12 @@ import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.rzl.flightgotiketbooking.data.model.ResponseProfile
 import com.rzl.flightgotiketbooking.databinding.FragmentProfileBinding
+import com.rzl.flightgotiketbooking.ui.PrivacynPolicyFragment
+import com.rzl.flightgotiketbooking.ui.changepass.ChangePassFragment
+import com.rzl.flightgotiketbooking.ui.editprofile.EditProfileFragment
+import com.rzl.flightgotiketbooking.ui.help.HelpFragment
 import com.rzl.flightgotiketbooking.ui.login.LoginActivity
+import com.rzl.flightgotiketbooking.ui.tnc.TermsnConditionFragment
 import com.rzl.flightgotiketbooking.utils.ResultState
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,16 +41,14 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getProfile()
+        var profile: ResponseProfile? = null
 
         viewModel.resultState.observe(viewLifecycleOwner) {
             when (it) {
                 is ResultState.Success<*> -> {
-                    val response = it.data as ResponseProfile
-                    Glide.with(view)
-                        .load(response.imageUser)
-                        .into(binding.imgProfile)
-
-                    binding.tvNameUser.text = response.email
+                    profile = it.data as ResponseProfile
+                    Glide.with(view).load(profile?.imageUser).into(binding.imgProfilePass)
+                    binding.tvNameUser.text = profile?.role
 
                 }
                 is ResultState.Error -> {
@@ -56,6 +59,30 @@ class ProfileFragment : Fragment() {
                     binding.progresBar.isVisible = it.isloading
                 }
             }
+        }
+
+        binding.btnDetailsAccount.setOnClickListener {
+            startActivity(Intent(requireContext(), EditProfileFragment::class.java).apply {
+                profile?.let {
+                    putExtra("profile", it)
+                }
+            })
+        }
+
+        binding.btnChangePassword.setOnClickListener {
+            startActivity(Intent(requireContext(), ChangePassFragment::class.java))
+        }
+
+        binding.btnTnc.setOnClickListener {
+            startActivity(Intent(requireContext(), TermsnConditionFragment::class.java))
+        }
+
+        binding.btnHelp.setOnClickListener {
+            startActivity(Intent(requireContext(), HelpFragment::class.java))
+        }
+
+        binding.btnPp.setOnClickListener {
+            startActivity(Intent(requireContext(), PrivacynPolicyFragment::class.java))
         }
 
         auth = FirebaseAuth.getInstance()
