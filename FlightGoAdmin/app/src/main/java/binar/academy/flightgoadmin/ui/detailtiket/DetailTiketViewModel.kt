@@ -15,7 +15,6 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
-import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
@@ -32,14 +31,14 @@ class DetailTiketViewModel @Inject constructor(private val repository: Repositor
     fun deleteTicket(id: Int) {
         viewModelScope.launch {
             repository.deleteTicket(id).collect {
-                    stateStatus.value = it
-                }
+                stateStatus.value = it
+            }
         }
     }
 
     fun updateTiket(departureData: FormData, returData: FormData) {
         val imgBody = departureData.imageFile.value?.readBytes()?.toRequestBody(
-            contentType = "image/png".toMediaTypeOrNull()
+            contentType = "image/*".toMediaTypeOrNull()
         )
 
         val requestBody = imgBody?.let {
@@ -69,7 +68,7 @@ class DetailTiketViewModel @Inject constructor(private val repository: Repositor
                 .addFormDataPart(
                     "image_product",
                     "Image_${System.currentTimeMillis()}",
-                    it
+                    imgBody
                 ).build()
         }
 

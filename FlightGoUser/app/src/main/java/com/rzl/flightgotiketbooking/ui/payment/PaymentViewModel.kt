@@ -31,7 +31,7 @@ class PaymentViewModel @Inject constructor(private val repository: Repository) :
 
     fun createTrx(id: Int, inputStream: InputStream) {
         val imgBody = inputStream.readBytes().toRequestBody(
-            contentType = "application/octet-stream".toMediaTypeOrNull()
+            contentType = "image/*".toMediaTypeOrNull()
         )
 
         val requestBody = MultipartBody.Builder().setType(MultipartBody.FORM)
