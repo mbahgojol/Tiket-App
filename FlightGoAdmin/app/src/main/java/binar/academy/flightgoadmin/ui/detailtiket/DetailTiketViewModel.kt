@@ -39,7 +39,7 @@ class DetailTiketViewModel @Inject constructor(private val repository: Repositor
 
     fun updateTiket(departureData: FormData, returData: FormData) {
         val imgBody = departureData.imageFile.value?.readBytes()?.toRequestBody(
-            contentType = "application/octet-stream".toMediaTypeOrNull()
+            contentType = "image/png".toMediaTypeOrNull()
         )
 
         val requestBody = imgBody?.let {
