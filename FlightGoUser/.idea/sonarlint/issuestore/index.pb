@@ -113,5 +113,3 @@ P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 †
 Vapp/src/main/java/com/rzl/flightgotiketbooking/ui/boardingpass/BoardingPassActivity.kt,2/c/2cfec5de4b981684decc2455800c575933927665
-„
-Tapp/src/main/java/com/rzl/flightgotiketbooking/ui/detailtiket/DetailTiketActivity.kt,8/e/8e2b7b29c3f80bad3e3ab5c892dae9bb56943f1f
