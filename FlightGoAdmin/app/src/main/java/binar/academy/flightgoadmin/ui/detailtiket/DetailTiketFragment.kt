@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
@@ -24,6 +26,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -69,6 +73,41 @@ class DetailTiketFragment : Fragment() {
     }
 }
 
+@Composable
+fun UpdateTiketDialog(
+    dialogState: MutableState<Boolean> = mutableStateOf(false), back: () -> Unit
+) {
+    Dialog(onDismissRequest = {
+        dialogState.value = false
+        back()
+    }) {
+        Card(
+            Modifier.size(200.dp), shape = RoundedCornerShape(10.dp)
+        ) {
+            Column(
+                Modifier
+                    .fillMaxSize()
+                    .clip(RoundedCornerShape(20.dp))
+                    .background(color = Color.White),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.success_icon),
+                    contentDescription = "",
+                    Modifier.size(100.dp)
+                )
+                SpacerHeight(height = 20.dp)
+                Text(
+                    text = "Berhasil Update Tiket", style = caption.copy(
+                        fontWeight = FontWeight.Normal, textAlign = TextAlign.Center
+                    )
+                )
+            }
+        }
+    }
+}
+
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun DetailTiketScreen(
@@ -76,6 +115,14 @@ fun DetailTiketScreen(
     viewModel: DetailTiketViewModel = hiltViewModel(),
     tiket: TiketResponseItem? = null
 ) {
+    val showSuccessDialog = remember {
+        mutableStateOf(false)
+    }
+
+    if (showSuccessDialog.value) {
+        UpdateTiketDialog(dialogState = showSuccessDialog, back)
+    }
+
     var showDialog by remember {
         mutableStateOf(false)
     }
@@ -286,7 +333,9 @@ fun DetailTiketScreen(
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 Button(
-                    onClick = back,
+                    onClick = {
+                        showSuccessDialog.value = true
+                    },
                     modifier = Modifier
                         .weight(1f)
                         .clip(RoundedCornerShape(10.dp)),
