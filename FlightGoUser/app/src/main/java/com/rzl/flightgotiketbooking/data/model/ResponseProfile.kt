@@ -1,25 +1,13 @@
 package com.rzl.flightgotiketbooking.data.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class ResponseProfile(
-    @SerializedName("address")
-    val address: Any,
-    @SerializedName("email")
-    val email: String,
-    @SerializedName("image_user")
-    val imageUser: String,
-    @SerializedName("izin")
-    val izin: Any,
-    @SerializedName("name")
-    val name: Any,
-    @SerializedName("passport")
-    val passport: Any,
-    @SerializedName("phone")
-    val phone: Any,
-    @SerializedName("role")
-    val role: String,
-    @SerializedName("visa")
-    val visa: Any
-)
+    @SerializedName("email") val email: String = "",
+    @SerializedName("image_user") val imageUser: String = "",
+    @SerializedName("role") val role: String = "",
+) : Parcelable

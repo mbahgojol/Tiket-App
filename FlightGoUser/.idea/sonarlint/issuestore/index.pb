@@ -25,8 +25,6 @@ q
 Aapp/src/main/java/com/rzl/flightgotiketbooking/BaseApplication.kt,d/5/d5756e640c78b3ad3308d0bdb1fbc3cc1fc7d3e8
 ~
 Napp/src/main/java/com/rzl/flightgotiketbooking/ui/register/RegisterActivity.kt,7/8/78c218edd67e669097ad2da3c05d46fafbb06e4e
-x
-Happ/src/main/java/com/rzl/flightgotiketbooking/ui/login/LoginActivity.kt,4/9/494737ac7b2d2c1f8a45be2e6c13b2a0f98e475f
 z
 Japp/src/main/java/com/rzl/flightgotiketbooking/ui/adapter/AdapterFlight.kt,6/e/6e70942f5239f08abd91cdd4ab90a2c600b44705
 u
@@ -63,8 +61,6 @@ Uapp/src/main/java/com/rzl/flightgotiketbooking/ui/detailtiket/DetailTiketViewMo
 Mapp/src/main/java/com/rzl/flightgotiketbooking/ui/fragment/HistoryFragment.kt,1/4/140dbe1d6dd34ec89d759deb439614dba2b0fe31
 }
 Mapp/src/main/java/com/rzl/flightgotiketbooking/ui/booking/BookingViewModel.kt,9/5/95a559382189a49b73eb518989f45f013d69cfef
-|
-Lapp/src/main/java/com/rzl/flightgotiketbooking/data/model/ResponseProfile.kt,6/2/62525f420ddae23ff70535bda7266f19ef8cace5
 }
 Mapp/src/main/java/com/rzl/flightgotiketbooking/ui/profile/ProfileViewModel.kt,4/d/4de0e734e51ff1571e044ed9d6b92f92382e6b14
 ?
@@ -91,16 +87,12 @@ m
 =app/src/main/java/com/rzl/flightgotiketbooking/utils/Color.kt,8/e/8ea81dddb61faf1d262e9c2cb66b86621b48ab13
 o
 ?app/src/main/java/com/rzl/flightgotiketbooking/utils/UiUtils.kt,c/4/c4bbbcc06686dd19d018f2eb3e469a4a1954739b
-q
-Aapp/src/main/java/com/rzl/flightgotiketbooking/ui/MainActivity.kt,f/1/f1ffe78d67b51dd6459716d639efc1ee21ac7e08
 |
 Lapp/src/main/java/com/rzl/flightgotiketbooking/ui/booking/BookingFragment.kt,8/7/87d15ee32b5905c564ee188d048778555646bd35
 y
 Iapp/src/main/java/com/rzl/flightgotiketbooking/data/network/ApiService.kt,b/c/bc119553e4214f2288b13ea771000e36ec8a33ad
 q
 Aapp/src/main/java/com/rzl/flightgotiketbooking/data/Repository.kt,4/5/455f801b1305d3169b619a217903ec29911f978e
-|
-Lapp/src/main/java/com/rzl/flightgotiketbooking/ui/profile/ProfileFragment.kt,0/f/0f958104fdc9a42ff90bd55f2e8b71530e90ab28
 w
 Gapp/src/main/java/com/rzl/flightgotiketbooking/ui/home/HomesFragment.kt,9/2/9253bc10e1ca735bd742ed995d482047fcc82b37
 ‚

@@ -22,10 +22,10 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/profile_details_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/arrow_back"
-                android:id="@+id/profile_details_back"/>
+                android:src="@drawable/arrow_back" />
 
             <TextView
                 android:id="@+id/title_profile"
@@ -34,8 +34,8 @@
                 android:layout_gravity="center"
                 android:text="Details Account"
                 android:textColor="@color/black"
-                android:textStyle="bold"
                 android:textSize="24sp"
+                android:textStyle="bold"
                 tools:layout_editor_absoluteX="160dp"
                 tools:layout_editor_absoluteY="15dp" />
 
@@ -153,6 +153,7 @@
                 android:inputType="phone" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_address"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -184,12 +185,12 @@
             style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_weight="1"
-            android:textAllCaps="false"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
             android:text="Update Profile"
+            android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="18dp"
             app:backgroundTint="@color/orange"

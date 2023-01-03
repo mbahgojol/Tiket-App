@@ -1,41 +1,78 @@
 {
   "project_info": {
-    "project_number": "585292695136",
-    "project_id": "flightgo-d3f43",
-    "storage_bucket": "flightgo-d3f43.appspot.com"
+    "project_number": "1000422854988",
+    "project_id": "flightgo-ec7e6",
+    "storage_bucket": "flightgo-ec7e6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:585292695136:android:a10e75104a8885b1f3e505",
+        "mobilesdk_app_id": "1:1000422854988:android:e3daea04d9e45376677fe9",
         "android_client_info": {
-          "package_name": "com.rzl.flightgotiketbooking"
+          "package_name": "binar.academy.flightgo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "585292695136-5f8hvdnts57opdigp6re14d896ia5uom.apps.googleusercontent.com",
+          "client_id": "1000422854988-gagids8uc15ih7mbo08472kmhofgt8rk.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.rzl.flightgotiketbooking",
-            "certificate_hash": "e99f28be50d0309b120304b839f44649ef711c3b"
+            "package_name": "binar.academy.flightgo",
+            "certificate_hash": "82975f48135f0a440bb55f3413aa0349d3934259"
           }
         },
         {
-          "client_id": "585292695136-8ttcs9qo14qb6q60pniav3lepcu8tt70.apps.googleusercontent.com",
+          "client_id": "1000422854988-g5pd967qn5gnd4ld0vo8oqb3rhpoaa6i.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBL9oSTwopDoqnzxzgJf8iHp1gP-bfnABU"
+          "current_key": "AIzaSyChy2uf4mGoqzrw_CeYx9HzH94g76Y4q4U"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "585292695136-8ttcs9qo14qb6q60pniav3lepcu8tt70.apps.googleusercontent.com",
+              "client_id": "1000422854988-g5pd967qn5gnd4ld0vo8oqb3rhpoaa6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000422854988:android:9adbd4395d098b5e677fe9",
+        "android_client_info": {
+          "package_name": "com.rzl.flightgotiketbooking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000422854988-jlhf7cd3qtfkg77nt94vnk6t1dpm7us7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rzl.flightgotiketbooking",
+            "certificate_hash": "82975f48135f0a440bb55f3413aa0349d3934259"
+          }
+        },
+        {
+          "client_id": "1000422854988-g5pd967qn5gnd4ld0vo8oqb3rhpoaa6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChy2uf4mGoqzrw_CeYx9HzH94g76Y4q4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000422854988-g5pd967qn5gnd4ld0vo8oqb3rhpoaa6i.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
