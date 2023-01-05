@@ -95,7 +95,7 @@ fun HistoryScreen(viewModel: NotifViewModel = hiltViewModel()) {
                                         horizontalArrangement = Arrangement.SpaceBetween
                                     ) {
                                         Text(
-                                            text = "Kode Transaksi : 00${response.id}",
+                                            text = "Kode Transaksi : 00${(response.id ?: 0)}",
                                             style = caption.copy(
                                                 fontSize = 12.sp
                                             )
