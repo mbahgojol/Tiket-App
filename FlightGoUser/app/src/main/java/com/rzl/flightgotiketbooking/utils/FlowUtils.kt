@@ -20,6 +20,7 @@ fun <T> flowApi(service: (suspend () -> T)): Flow<ResultState> = flow {
     try {
         emit(ResultState.Success(service.invoke()))
     } catch (e: Exception) {
+        e.printStackTrace()
         emit(ResultState.Error(e))
     } finally {
         emit(ResultState.Loading(false))

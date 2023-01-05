@@ -37,12 +37,6 @@ x
 Happ/src/main/java/binar/academy/flightgoadmin/ui/SplashScreenFragment.kt,c/c/ccc65e8918ffa3a38087121d3af7b8447dc13096
 Å
 Qapp/src/main/java/binar/academy/flightgoadmin/data/model/admin/ResponseProfile.kt,4/d/4d63314cce89ae1def80aeb6a58de0ff70f9fb37
-{
-Kapp/src/main/java/binar/academy/flightgoadmin/ui/profile/ProfileFragment.kt,6/0/6046aeb7a045b5c8c56790124d2c827b3681175f
-|
-Lapp/src/main/java/binar/academy/flightgoadmin/ui/profile/ProfileViewModel.kt,3/3/331eb098526ab4d8897c2b320177c46caef00e71
-w
-Gapp/src/main/java/binar/academy/flightgoadmin/ui/login/LoginFragment.kt,4/1/411c57dd5aa033d9ac5871c1634aeaf7a895fd27
 
 Oapp/src/main/java/binar/academy/flightgoadmin/ui/component/CenterProgressBar.kt,d/0/d0966a0e82ef371b6ac4d6fcb54fa140f5fb0c1c
 z

@@ -62,6 +62,11 @@ class Repository @Inject constructor(
         apiService.getProfile(token.addBearer())
     }
 
+    fun getProfile1(): Flow<UiState<ResponseProfile>> = flowState {
+        val token = pref.getToken().first()
+        apiService.getProfile(token.addBearer())
+    }
+
     fun getDetailTicket(id: Int): Flow<UiState<ResponseFlightList.ResponseFlightListItem>> =
         flowState {
             val token = pref.getToken().first()

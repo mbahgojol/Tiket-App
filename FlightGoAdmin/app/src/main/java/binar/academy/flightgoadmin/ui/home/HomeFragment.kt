@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -23,7 +22,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -35,6 +33,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.findNavController
 import binar.academy.flightgoadmin.R
 import binar.academy.flightgoadmin.data.model.tiket.TiketResponseItem
+import binar.academy.flightgoadmin.databinding.FragmentHomeBinding
 import binar.academy.flightgoadmin.ui.component.*
 import binar.academy.flightgoadmin.utils.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -46,7 +45,8 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        return ComposeView(requireContext()).apply {
+        val binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.composeView.apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
                 HomeScreen(clickCostumer = {
@@ -64,6 +64,7 @@ class HomeFragment : Fragment() {
                 })
             }
         }
+        return binding.root
     }
 }
 

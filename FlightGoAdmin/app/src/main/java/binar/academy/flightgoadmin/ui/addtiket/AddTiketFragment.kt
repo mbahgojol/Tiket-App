@@ -16,6 +16,8 @@ import androidx.annotation.RequiresApi
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
@@ -404,8 +406,33 @@ fun FormAddTiket(formData: FormData) {
         "Description",
     )
 
+    val mDatePickerDialog = MyDatePickerDialog(listener = { y, m, mofday ->
+        formData.departureDate.value = "$mofday/${m + 1}/$y"
+    })
+
+    val mDatePickerDialog1 = MyTimePickerDialog(listener = { y, m, mofday ->
+        formData.departureTime.value = "$y : $m"
+    })
+
+    val source = remember {
+        MutableInteractionSource()
+    }
+
+    val source1 = remember {
+        MutableInteractionSource()
+    }
+
+    if (source.collectIsPressedAsState().value) {
+        mDatePickerDialog.show()
+    }
+
+    if (source1.collectIsPressedAsState().value) {
+        mDatePickerDialog1.show()
+    }
+
+
     Column(Modifier.fillMaxWidth()) {
-        (0..3).forEach { i ->
+        (0..2).forEach { i ->
             Row(
                 Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
@@ -413,11 +440,38 @@ fun FormAddTiket(formData: FormData) {
                     listForm[i.plus(i)], state = listFormData[i.plus(i)], Modifier.weight(1f)
                 )
                 MyTextField(
-                    listForm[i.plus(1)], state = listFormData[i.plus(1)], Modifier.weight(1f)
+                    listForm[i.plus(i + 1)],
+                    state = listFormData[i.plus(i + 1)],
+                    Modifier.weight(1f)
                 )
             }
             SpacerHeight(height = 16.dp)
         }
+        Row(
+            Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            OutlinedTextField(
+                modifier = Modifier.weight(1f),
+                value = formData.departureDate.value,
+                onValueChange = {},
+                label = {
+                    Text(text = listForm[6])
+                },
+                readOnly = true,
+                interactionSource = source,
+            )
+            OutlinedTextField(
+                modifier = Modifier.weight(1f),
+                value = formData.departureTime.value,
+                onValueChange = {},
+                label = {
+                    Text(text = listForm[7])
+                },
+                readOnly = true,
+                interactionSource = source1,
+            )
+        }
+        SpacerHeight(height = 16.dp)
         MyTextField(
             listForm[8], state = listFormData[8], Modifier.fillMaxWidth()
         )

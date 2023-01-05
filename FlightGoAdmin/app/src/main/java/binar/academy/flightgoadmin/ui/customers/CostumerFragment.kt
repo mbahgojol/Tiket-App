@@ -188,9 +188,15 @@ fun ItemTrxCustomer(
         modifier = modifier, shape = RoundedCornerShape(10.dp)
     ) {
         Column(Modifier.padding(vertical = 8.dp, horizontal = 12.dp)) {
-            LineTextSection(text1 = data.id.toString(), text2 = data.createdAt)
+            LineTextSection(
+                text1 = "Transcation ID : ${data.id}",
+                text2 = "Made on:${data.createdAt.substring(0, 9)}"
+            )
             SpacerHeight(height = 4.dp)
-            LineTextSection(text1 = data.userId.toString(), text2 = "Name")
+            LineTextSection(
+                text1 = "UserID : ${data.userId}",
+                text2 = "Status : ${data.status}"
+            )
             SpacerHeight(height = 4.dp)
             Text(
                 text = data.productId.toString(), style = largeTitleSemiBold.copy(

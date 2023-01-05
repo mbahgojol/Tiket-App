@@ -37,11 +37,11 @@ class LoginFragment : Fragment() {
     }
 
     private fun loginAction() {
-        val email = binding.adminEmail.text.toString()
-        val password = binding.adminPassword.text.toString()
+        val email = binding.etEmail.text.toString()
+        val password = binding.etPassword.text.toString()
         if (email == "" && password == "") {
-            binding.edEmail.error = "Please fill out this field."
-            binding.edPassword.error = "Please fill out this field."
+            binding.etEmail.error = "Please fill out this field."
+            binding.etPassword.error = "Please fill out this field."
         } else {
             viewModel.saveLoginStatus(true)
             viewModel.apiLogin(email, password)
@@ -49,7 +49,7 @@ class LoginFragment : Fragment() {
                 if (it != null) {
                     //save token to Data Store
                     viewModel.saveData(it.data.role, it.data.accessToken)
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    findNavController().navigate(R.id.homeFragment)
                     Log.d("ACCESS TOKEN: ", it.data.accessToken)
                     Toast.makeText(context, "Halo ${it.data.role}", Toast.LENGTH_SHORT).show()
                 } else {

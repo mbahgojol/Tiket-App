@@ -3,9 +3,11 @@ package com.rzl.flightgotiketbooking.ui.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -20,6 +22,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.NotificationsNone
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -37,14 +40,21 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.fragment.app.Fragment
+import androidx.hilt.navigation.compose.hiltViewModel
+import coil.compose.rememberAsyncImagePainter
 import com.rzl.flightgotiketbooking.R
+import com.rzl.flightgotiketbooking.data.model.ResponseProfile
 import com.rzl.flightgotiketbooking.ui.component.MyDatePickerDialog
 import com.rzl.flightgotiketbooking.ui.component.SpacerHeight
 import com.rzl.flightgotiketbooking.ui.component.SpacerWidth
 import com.rzl.flightgotiketbooking.ui.listflight.ListFlightActivity
 import com.rzl.flightgotiketbooking.ui.notif.NotificationActivity
+import com.rzl.flightgotiketbooking.ui.profile.ProfileViewModel
 import com.rzl.flightgotiketbooking.utils.GreyFlight
+import com.rzl.flightgotiketbooking.utils.ResultState
+import com.rzl.flightgotiketbooking.utils.UiState
 import com.rzl.flightgotiketbooking.utils.caption
+import dagger.hilt.android.AndroidEntryPoint
 import dev.chrisbanes.snapper.ExperimentalSnapperApi
 import dev.chrisbanes.snapper.rememberSnapperFlingBehavior
 
@@ -63,7 +73,7 @@ fun rememberSearchFlight() = remember {
     SearchFlightData()
 }
 
-
+@AndroidEntryPoint
 class HomesFragment : Fragment() {
 
     override fun onCreateView(
@@ -80,11 +90,35 @@ class HomesFragment : Fragment() {
 
 @OptIn(ExperimentalSnapperApi::class)
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(
+    modifier: Modifier = Modifier,
+    viewModel: ProfileViewModel = hiltViewModel()
+) {
     val state = rememberLazyListState()
+    var imgUrl by remember {
+        mutableStateOf("")
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.getProfile1()
+    }
+
+    viewModel.state.collectAsState().value.let {
+        when (it) {
+            is UiState.Loading -> {
+
+            }
+            is UiState.Success<*> -> {
+                val response = it.data as ResponseProfile
+                imgUrl = response.imageUser
+            }
+            is UiState.Error -> {
+            }
+        }
+    }
 
     Scaffold(modifier = modifier, topBar = {
-        AppBar()
+        AppBar(img = imgUrl)
     }) {
         LazyColumn(
             contentPadding = it,
@@ -336,7 +370,8 @@ fun RoundTrip(data: SearchFlightData) {
 @Composable
 fun FlightRoute(data: SearchFlightData) {
     Row(modifier = Modifier.fillMaxWidth()) {
-        TextField(value = data.from,
+        TextField(
+            value = data.from,
             onValueChange = { data.from = it },
             label = { Text("From", style = caption) },
             colors = TextFieldDefaults.textFieldColors(
@@ -350,7 +385,8 @@ fun FlightRoute(data: SearchFlightData) {
         )
         SpacerWidth(width = 8.dp)
         CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
-            TextField(value = data.to,
+            TextField(
+                value = data.to,
                 onValueChange = { data.to = it },
                 label = { Text("To", style = caption) },
                 colors = TextFieldDefaults.textFieldColors(
@@ -398,7 +434,10 @@ fun ItemPromo() {
 }
 
 @Composable
-fun AppBar(context: Context = LocalContext.current) {
+fun AppBar(
+    context: Context = LocalContext.current,
+    img: String
+) {
     TopAppBar(
         backgroundColor = colorResource(id = R.color.orange), elevation = 0.dp
     ) {
@@ -407,7 +446,7 @@ fun AppBar(context: Context = LocalContext.current) {
             modifier = Modifier.weight(1f)
         )
         Image(
-            painter = painterResource(id = R.drawable.man_user),
+            painter = rememberAsyncImagePainter(model = img),
             contentDescription = "",
             modifier = Modifier
                 .size(35.dp)
@@ -431,7 +470,7 @@ fun AppBar(context: Context = LocalContext.current) {
 @Preview(showBackground = true)
 @Composable
 fun AppBarPreview() {
-    AppBar()
+    AppBar(img = "")
 }
 
 @Preview
